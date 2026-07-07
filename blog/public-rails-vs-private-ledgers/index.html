@@ -1,0 +1,235 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Public Rails vs Private Ledgers · Blog · IPTF</title><meta name="description" content="An institutional decision framework for choosing between public blockchains with cryptographic privacy and private ledgers with trust-based privacy."><link rel="canonical" href="https://iptf.ethereum.org/blog/public-rails-vs-private-ledgers/"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="icon" type="image/png" sizes="256x256" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"><meta property="og:type" content="website"><meta property="og:title" content="Public Rails vs Private Ledgers · Blog · IPTF"><meta property="og:description" content="An institutional decision framework for choosing between public blockchains with cryptographic privacy and private ledgers with trust-based privacy."><link rel="stylesheet" href="/_astro/BaseLayout.DKixhPwc.css">
+<style>.article-footer[data-astro-cid-oebh424b]{margin-top:3.5rem;padding-top:2rem;border-top:1px solid var(--color-border)}.continue[data-astro-cid-oebh424b] h4[data-astro-cid-oebh424b]{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:1rem}.continue-grid[data-astro-cid-oebh424b]{display:grid;grid-template-columns:repeat(2,1fr);gap:.65rem}@media(max-width:600px){.continue-grid[data-astro-cid-oebh424b]{grid-template-columns:1fr}}.continue-card[data-astro-cid-oebh424b]{display:grid;grid-template-columns:1fr auto;align-items:center;gap:.5rem .85rem;padding:.85rem 1rem;border:1px solid var(--color-border);border-radius:var(--radius-md);text-decoration:none;color:var(--color-text);background:var(--color-bg);transition:border-color var(--duration-fast) var(--easing-soft),background var(--duration-fast) var(--easing-soft),transform var(--duration-fast) var(--easing-soft)}.continue-card[data-astro-cid-oebh424b]:hover{border-color:var(--color-cta);background:var(--color-bg-subtle);transform:translateY(-1px)}.continue-card[data-astro-cid-oebh424b] .kind[data-astro-cid-oebh424b]{grid-column:1;grid-row:1;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-muted)}.continue-card[data-astro-cid-oebh424b] .title[data-astro-cid-oebh424b]{grid-column:1;grid-row:2;font-family:var(--font-sans);font-size:14.5px;font-weight:600;color:var(--color-primary);line-height:1.3}.continue-card[data-astro-cid-oebh424b] .arr[data-astro-cid-oebh424b]{grid-column:2;grid-row:1 / span 2;color:var(--color-cta);font-weight:700;transition:transform var(--duration-fast) var(--easing-soft)}.continue-card[data-astro-cid-oebh424b]:hover .arr[data-astro-cid-oebh424b]{transform:translate(3px)}.sibling-line[data-astro-cid-oebh424b]{margin-top:1.5rem;font-size:14.5px}.sibling-line[data-astro-cid-oebh424b] a[data-astro-cid-oebh424b]{color:var(--color-cta);font-weight:600;text-decoration:none}.sibling-line[data-astro-cid-oebh424b] a[data-astro-cid-oebh424b]:hover{text-decoration:underline}.sibling-line[data-astro-cid-oebh424b] .arr[data-astro-cid-oebh424b]{transition:transform var(--duration-fast) var(--easing-soft);display:inline-block}.sibling-line[data-astro-cid-oebh424b] a[data-astro-cid-oebh424b]:hover .arr[data-astro-cid-oebh424b]{transform:translate(2px)}.reviewed-line[data-astro-cid-oebh424b]{margin-top:1.25rem;font-family:var(--font-mono);font-size:11.5px;color:var(--color-text-muted);letter-spacing:.04em}.reviewed-line[data-astro-cid-oebh424b] strong[data-astro-cid-oebh424b]{color:var(--color-text-secondary);font-weight:600}
+.page-header[data-astro-cid-wu5dj4rx]{padding:4.5rem 0 2rem;background:radial-gradient(ellipse 60% 50% at 90% 10%,rgba(49,130,206,.05),transparent 60%)}.page-header--centered[data-astro-cid-wu5dj4rx] .container[data-astro-cid-wu5dj4rx]{text-align:center}.page-header--centered[data-astro-cid-wu5dj4rx] .breadcrumb[data-astro-cid-wu5dj4rx]{justify-content:center}.page-header--centered[data-astro-cid-wu5dj4rx] h1[data-astro-cid-wu5dj4rx],.page-header--centered[data-astro-cid-wu5dj4rx] .lede[data-astro-cid-wu5dj4rx],.page-header--centered[data-astro-cid-wu5dj4rx] .meta-row[data-astro-cid-wu5dj4rx]{margin-left:auto;margin-right:auto;text-align:center}.page-header--centered[data-astro-cid-wu5dj4rx] .meta-pills[data-astro-cid-wu5dj4rx]{justify-content:center}.page-header--centered[data-astro-cid-wu5dj4rx] .lede-bullets[data-astro-cid-wu5dj4rx]{margin-left:auto;margin-right:auto;text-align:left}.breadcrumb[data-astro-cid-wu5dj4rx]{font-family:var(--font-mono);font-size:12px;letter-spacing:.04em;color:var(--color-text-muted);margin-bottom:1.5rem;display:flex;flex-wrap:wrap;gap:.25rem;align-items:center}.breadcrumb[data-astro-cid-wu5dj4rx] a[data-astro-cid-wu5dj4rx]{color:var(--color-text-secondary)}.breadcrumb[data-astro-cid-wu5dj4rx] a[data-astro-cid-wu5dj4rx]:hover{color:var(--color-cta)}.breadcrumb[data-astro-cid-wu5dj4rx] .sep[data-astro-cid-wu5dj4rx]{color:var(--color-border-strong);margin:0 .4rem}.page-header[data-astro-cid-wu5dj4rx] h1[data-astro-cid-wu5dj4rx]{font-family:var(--font-sans);font-weight:700;font-size:clamp(2.25rem,4.4vw,3.05rem);line-height:1.08;letter-spacing:-.028em;color:var(--color-primary);margin-bottom:1.25rem;max-width:26ch;text-wrap:balance;min-width:0}.page-header[data-astro-cid-wu5dj4rx] h1[data-astro-cid-wu5dj4rx]:last-child{margin-bottom:0}.page-header[data-astro-cid-wu5dj4rx] .lede[data-astro-cid-wu5dj4rx]{font-size:1.0625rem;line-height:1.65;color:var(--color-text-secondary);max-width:64ch}.page-header[data-astro-cid-wu5dj4rx] .lede[data-astro-cid-wu5dj4rx] strong{color:var(--color-primary);font-weight:600}.page-header[data-astro-cid-wu5dj4rx] .lede-bullets[data-astro-cid-wu5dj4rx]{margin:0;padding-left:1.25rem;max-width:64ch;list-style:disc;color:var(--color-text-secondary)}.page-header[data-astro-cid-wu5dj4rx] .lede-bullets[data-astro-cid-wu5dj4rx] li[data-astro-cid-wu5dj4rx]{font-size:1.0625rem;line-height:1.65;margin-top:.4rem}.page-header[data-astro-cid-wu5dj4rx] .lede-bullets[data-astro-cid-wu5dj4rx] li[data-astro-cid-wu5dj4rx]:first-child{margin-top:0}.page-header[data-astro-cid-wu5dj4rx] .lede-bullets[data-astro-cid-wu5dj4rx] strong{color:var(--color-primary);font-weight:600}.page-header[data-astro-cid-wu5dj4rx] .meta-row[data-astro-cid-wu5dj4rx]{margin-top:1.25rem;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.04em;color:var(--color-text-muted)}.page-header[data-astro-cid-wu5dj4rx] .meta-row[data-astro-cid-wu5dj4rx] strong{color:var(--color-primary);font-weight:600}.meta-pills[data-astro-cid-wu5dj4rx]{margin-top:1.25rem;display:flex;flex-wrap:wrap;gap:.6rem;font-family:var(--font-mono);font-size:11.5px}.meta-pill[data-astro-cid-wu5dj4rx]{background:var(--color-bg-subtle);border:1px solid var(--color-border);padding:.3rem .7rem;border-radius:99px;color:var(--color-text-secondary)}.meta-pill[data-astro-cid-wu5dj4rx] strong[data-astro-cid-wu5dj4rx]{color:var(--color-primary);font-weight:600}
+.detail[data-astro-cid-55ylfk6n]{padding:1.5rem 0 4rem}.detail-grid[data-astro-cid-55ylfk6n]{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:3rem;align-items:start}.detail--centered[data-astro-cid-55ylfk6n] .detail-grid[data-astro-cid-55ylfk6n]{grid-template-columns:minmax(0,1fr)}.detail--centered[data-astro-cid-55ylfk6n] .detail-body[data-astro-cid-55ylfk6n]{width:100%;max-width:720px;margin-left:auto;margin-right:auto}@media(max-width:900px){.detail-grid[data-astro-cid-55ylfk6n]{grid-template-columns:minmax(0,1fr);gap:2rem}}.detail-body[data-astro-cid-55ylfk6n]{min-width:0}.detail-body>:first-child,.detail-grid>aside>:first-child,.detail-grid>aside section:first-child,.detail-grid>aside details:first-child,.detail-body>section:first-child{margin-top:0}
+.post-hero-image[data-astro-cid-4sn4zg3r]{width:100%;margin:0 0 2rem;border-radius:var(--radius-md);overflow:hidden;background:var(--color-bg-subtle)}.post-hero-image[data-astro-cid-4sn4zg3r] img[data-astro-cid-4sn4zg3r]{width:100%;height:auto;display:block}.post-prose{font-size:1.02rem;line-height:1.75;color:var(--color-text);max-width:720px}.post-prose h2{font-family:var(--font-sans);font-size:1.5rem;font-weight:700;color:var(--color-primary);letter-spacing:-.02em;margin:2.5rem 0 .75rem}.post-prose h3{font-family:var(--font-sans);font-size:1.2rem;font-weight:700;color:var(--color-primary);letter-spacing:-.015em;margin:2rem 0 .5rem}.post-prose p{margin:.85rem 0}.post-prose img{max-width:100%;height:auto;border-radius:var(--radius-sm);margin:1.25rem 0}.post-prose a{color:var(--color-cta);text-decoration:none;border-bottom:1px solid transparent;transition:border-color var(--duration-fast) var(--easing-soft)}.post-prose a:hover{border-bottom-color:currentColor}.post-prose code{font-family:var(--font-mono);font-size:.9em;background:var(--color-bg-subtle);padding:.05em .4em;border-radius:var(--radius-sm);color:var(--color-primary)}.post-prose blockquote{border-left:3px solid var(--color-cta);padding-left:1.25rem;color:var(--color-text-secondary);font-style:italic;margin:1.5rem 0}.post-prose ul,.post-prose ol{padding-left:1.5rem;margin:.85rem 0}.post-prose li{margin:.35rem 0}
+</style></head> <body> <header class="nav-bar" data-astro-cid-ymhdp2rl> <div class="container nav-inner" data-astro-cid-ymhdp2rl> <a class="brand" href="/" aria-label="IPTF — Institutional Privacy Task Force, an Ethereum Foundation initiative" data-astro-cid-ymhdp2rl> <img class="brand-logo" src="/logo.svg" alt="IPTF — Institutional Privacy Task Force" width="219" height="40" data-astro-cid-ymhdp2rl> </a> <nav class="nav-primary" data-astro-cid-ymhdp2rl> <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navOverlay" data-astro-cid-ymhdp2rl> <span data-astro-cid-ymhdp2rl></span><span data-astro-cid-ymhdp2rl></span><span data-astro-cid-ymhdp2rl></span> </button> <a href="/approaches/" data-astro-cid-ymhdp2rl>Approaches</a> <a href="/use-cases/" data-astro-cid-ymhdp2rl>Use cases</a> <a href="/patterns/" data-astro-cid-ymhdp2rl>Building blocks</a> <a href="/blog/" class="active" data-astro-cid-ymhdp2rl>Blog</a> <a href="/about/" data-astro-cid-ymhdp2rl>About</a> <a href="https://docs.google.com/forms/d/e/1FAIpQLScK2SW0fxXU_h6SGPiBCRiodWFuv-H1BfA3wXh79RPbOT8OKg/viewform" class="btn ghost nav-cta" target="_blank" rel="noopener" data-astro-cid-ymhdp2rl>Contact us<span class="ext-icon" aria-hidden="true" data-astro-cid-ymhdp2rl><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-ymhdp2rl><path d="M7 17L17 7M9 7h8v8" data-astro-cid-ymhdp2rl></path></svg></span></a> </nav> </div> </header> <main>  <header class="page-header page-header--centered" data-astro-cid-wu5dj4rx> <div class="container" data-astro-cid-wu5dj4rx> <nav class="breadcrumb" aria-label="Breadcrumb" data-astro-cid-wu5dj4rx> <a href="/" data-astro-cid-wu5dj4rx>Home</a><span class="sep" data-astro-cid-wu5dj4rx>/</span><a href="/blog/" data-astro-cid-wu5dj4rx>Blog</a><span class="sep" data-astro-cid-wu5dj4rx>/</span><span data-astro-cid-wu5dj4rx>Public Rails vs Private Ledgers</span> </nav> <h1 data-astro-cid-wu5dj4rx>Public Rails vs Private Ledgers</h1>  <p class="lede" data-astro-cid-wu5dj4rx>An institutional decision framework for choosing between public blockchains with cryptographic privacy and private ledgers with trust-based privacy.</p>  <div class="meta-pills" data-astro-cid-wu5dj4rx> <span class="meta-pill" data-astro-cid-wu5dj4rx><strong data-astro-cid-wu5dj4rx>2026-01-30</strong></span><span class="meta-pill" data-astro-cid-wu5dj4rx>Oskar</span> </div> </div> </header> <section class="detail detail--centered" data-astro-cid-55ylfk6n> <div class="container" data-astro-cid-55ylfk6n> <div class="detail-grid" data-astro-cid-55ylfk6n> <article class="detail-body" data-astro-cid-55ylfk6n> <div class="post-hero-image" data-astro-cid-4sn4zg3r> <img src="/assets/images/2026-01-30-public-rails-vs-private-ledgers/public_rails_vs_private_ledgers_hero.jpg" alt="" loading="eager" data-astro-cid-4sn4zg3r> </div><div class="prose post-prose" data-astro-cid-4sn4zg3r> <p><em>An institutional decision framework</em></p>
+<p>Over the past decade, many of us have watched a familiar pattern play out.</p>
+<p>A new “enterprise blockchain” arrives, promising privacy, control, and regulatory comfort. A consortium forms. Large financial institutions sign MOUs. Impressive proofs-of-concept, some live deployments, and then… stagnation.</p>
+<p>Was this because the technology was bad? Or because the permissioned consortium model has structural limits that even the best implementation cannot escape?</p>
+<p>We use Canton as our reference point, not because it failed, but because it has gained real traction. Canton represents one of the most technically ambitious permissioned platforms to date, backed by tier-one institutions and some initial production deployments. If we want to understand the category’s limits, we should examine one of its strongest examples.</p>
+<p>What follows is a decision framework for institutions choosing between:</p>
+<ol>
+<li>Private ledgers with trust-based privacy, and</li>
+<li>Public blockchains with cryptographic privacy.</li>
+</ol>
+<p>The choice comes down to privacy by policy or privacy by math.</p>
+<h2 id="definitions--scope">Definitions &#x26; Scope</h2>
+<p>The terminology misleads. “Public” blockchain does not necessarily mean your data is exposed. “Private” blockchain does not mean privacy-preserving. For institutions evaluating these platforms, what matters isn’t public versus private; it’s how privacy is enforced.</p>
+<p><strong>Trust-based privacy (permissioned infrastructure):</strong> A known set of operators gate access. Counterparties see plaintext; non-participants are excluded by access control. Privacy depends on policy enforcement, legal agreements, and participants honoring them.</p>
+<p><strong>Cryptographic privacy (public infrastructure):</strong> Privacy is enforced by mathematics. Zero-knowledge proofs allow verification without disclosure. The infrastructure is public; your data is not.</p>
+<p>This framework addresses a fundamental set of risks: a counterparty turns adversarial, a regulator demands data access years later, or an infrastructure operator gets pressured to change the rules. If you trust your consortium partners indefinitely and operate in a single jurisdiction, a standard database may suffice. Blockchains exist precisely for when trust breaks down.</p>
+<h2 id="1-the-permissioned-promise">1. The Permissioned Promise</h2>
+<p>For technology and risk executives at large institutions, the appeal of permissioned ledgers is obvious. They look like what you already know.</p>
+<p>A permissioned consortium resembles traditional market infrastructure. Known parties around the table. Contractual governance. Vendor support with a runbook and a roadmap. Enterprise SLAs you can hold someone accountable to.</p>
+<p>For a risk committee accustomed to these structures, the comfort is genuine:</p>
+<ul>
+<li><strong>Familiar governance:</strong> You know exactly who operates the infrastructure.</li>
+<li><strong>Regulatory comfort:</strong> Participants are KYC’d; access is gated; operators are regulated entities.</li>
+<li><strong>No cryptographic complexity:</strong> Privacy comes from access control and contract law, not zero-knowledge proofs and novel threat models.</li>
+</ul>
+<p>The promise unfolded in three waves:</p>
+<ul>
+<li><strong>Gen 1 (Hyperledger Fabric):</strong> IBM-backed, enterprise-grade, flexible.</li>
+<li><strong>Gen 2 (Corda):</strong> R3’s consortium, purpose-built for financial workflows.</li>
+<li><strong>Gen 3 (Canton):</strong> DAML’s smart contract language, a Global Synchronizer for cross-domain coordination, backing from DTCC, NASDAQ, and Goldman Sachs.</li>
+</ul>
+<p>These were not irrational experiments. They mapped to existing institutional mental models. The question is: what have we learned after three generations?</p>
+<h2 id="2-case-study-canton">2. Case Study: Canton</h2>
+<p>Canton is among the most ambitious permissioned platforms in production. Understanding what it achieved, and where it hits limits, reveals whether the constraints are specific to Canton or inherent to the permissioned model.</p>
+<p><strong>Institutional credibility.</strong> Partnerships with NASDAQ, DTCC, Goldman Sachs, Euroclear. The headline of trillions in represented asset value<sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup> (tokenized records of off-chain assets, not natively on-chain) represents the largest permissioned deployment to date.</p>
+<p><strong>Technical sophistication.</strong> The <em>Global Synchronizer</em> enables cross-domain coordination. DAML’s <em>sub-transaction privacy</em> lets each participant see only their relevant slice. <em>Two-phase commit (2PC)</em> ensures multi-party transactions settle together or not at all.</p>
+<p><strong>Governance clarity.</strong> Super Validators (known organizations with protocol voting rights) run the network. For institutions that value knowing exactly who operates their infrastructure, this provides comfort.</p>
+<p>Canton may be the right answer if your use case is bilateral settlement between known counterparties within a closed, legally-aligned consortium, with deterministic finality requirements and tolerance for a non-standard talent pool.</p>
+<p>Public blockchains have their own costs: gas, coordination overhead, and MEV exposure. For pure intra-consortium workflows, Canton’s trade-offs can make sense.</p>
+<p>But the same structural constraints we saw in Gen 1 and Gen 2 persist. Canton demonstrates that these limits are inherent to the permissioned model, not specific to any implementation.</p>
+<h3 id="where-permissioned-platforms-hit-limits">Where Permissioned Platforms Hit Limits</h3>
+<p>Despite these achievements, Canton sits inside the same design space as Hyperledger and Corda. That space comes with constraints that matter more as the system grows.</p>
+<p><strong>Ecosystem isolation.</strong> Each Canton domain is a private silo. Domains cannot natively interact with Ethereum DeFi, public stablecoins, or the broader on-chain ecosystem. Any bridge requires a trusted intermediary, reintroducing the very counterparty risk that blockchains were designed to eliminate. In institutional terms, asset transferability is limited.</p>
+<p>While the Global Synchronizer enables cross-domain transactions, liquidity tends to fragment rather than compound across separate deployments.</p>
+<p><strong>Vendor lock-in.</strong> DAML does not run on public EVM chains. Migration away from Canton means a full rewrite, not a port. This creates switching costs at every level: tooling, talent, and institutional knowledge.</p>
+<p>The talent gap is real: Ethereum has thousands of monthly active developers.<sup><a href="#user-content-fn-3" id="user-content-fnref-3" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup> DAML has roughly 200 contributors. One precedent is COBOL in banking, still critical but increasingly difficult to staff. Hiring DAML developers at scale, over a 10-year horizon, creates key-person risk that hiring for Solidity or Rust does not.</p>
+<p><strong>Governance concentration.</strong> The Canton Foundation is co-chaired by DTCC and Euroclear. Protocol changes require BFT voting with a 2/3 Super Validator majority. This is consortium governance, not decentralized governance. If a regulator pressures those entities, the network’s rules change. There is no fork option.</p>
+<p><strong>The 2PC risk.</strong> Canton uses asynchronous two-phase commit (2PC), a coordination protocol requiring all participants to respond, to settle across domains. If any participating domain is unavailable during the commit phase, the entire transaction rolls back. As you connect more domains, failure risk correlates rather than isolates. This creates <strong>systemic operational risk</strong>: correlated failures across participants, not isolated incidents. It also creates a scalability bottleneck for global settlement, much like traditional distributed systems.</p>
+<p><strong>The availability math.</strong> This behavior is derived from the topology.</p>
+<p>For any cross-domain transaction, availability is the product of participating domains. At 99% uptime each: two domains yield 98%, five domains yield 95%. The principle scales: more counterparties, lower availability. In contrast, on a public chain, if Counterparty B is offline, the L1 is still up, and Counterparty A can still post their side of the trade. Failures are isolated, not correlated.</p>
+<p><strong>Operational considerations.</strong> Canton’s major version migrations (2.x to 3.x) introduce breaking changes with no backwards compatibility. Budget accordingly if your production timeline spans releases.</p>
+<h2 id="3-trust-based-privacy-vs-cryptographic-privacy">3. Trust-Based Privacy vs Cryptographic Privacy</h2>
+<p>Before comparing platforms, we should ask a more basic question: why are we using blockchains at all?</p>
+<p>Bitcoin and Ethereum answered this clearly. They demonstrated that you can have a shared ledger where no single party controls the rules, no single party can censor transactions, and no single party can rewrite history. This is what we call <em>resilience</em>. The value proposition is <em>removing trust in operators</em> and replacing it with cryptographic and economic guarantees.</p>
+<p>Permissioned blockchains tried to capture blockchain benefits while preserving institutional control. But in doing so, they sacrificed resilience, the core value proposition. If you trust the consortium operators to run the network honestly, to respect your data boundaries, to not change the rules against your interests, you are back to trusting people. At that point, the question becomes: why not a database with legal contracts?</p>
+<p><img src="/assets/images/2026-01-30-public-rails-vs-private-ledgers/why_not_database.png" alt="Why not just a database?"></p>
+<p><strong>Trust-based privacy</strong> says: “I promise I won’t look at your data.” Operators, validators, and governance commit to respect data boundaries. If incentives shift, if regulators demand access, if governance evolves, the promise breaks.</p>
+<p><strong>Cryptographic privacy</strong> says: “I mathematically cannot see your data.” Zero-knowledge proofs allow verification without disclosure. The guarantee is not a policy or a contract. It is the protocol.</p>
+<p><strong>When trust-based privacy may suffice:</strong></p>
+<ul>
+<li>Closed consortium, aligned incentives, single jurisdiction</li>
+<li>Lower-stakes, short-duration, internal workflows</li>
+</ul>
+<p><strong>When cryptographic becomes necessary:</strong></p>
+<ul>
+<li>Adversarial or unknown counterparties</li>
+<li>High-stakes, long-duration commitments</li>
+<li>Cross-border, multi-jurisdictional exposure</li>
+</ul>
+<p>Most institutional use cases, especially anything cross-border or long-duration, fall into the second category.</p>
+<h2 id="4-public-blockchains">4. Public Blockchains</h2>
+<p>Multiple production systems now exist for cryptographic privacy on public infrastructure.</p>
+<p><strong>Enterprise-grade (Canton-comparable):</strong> Prividium offers ZKsync validium architecture (off-chain data, on-chain proofs) with high throughput targets<sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>, sub-second ZK finality, KYC/SSO built in. Deutsche Bank’s Project DAMA runs here. Selective disclosure enables compliance proofs without revealing underlying data, while L1 settlement preserves composability with the broader Ethereum ecosystem. Closest analog to Canton’s feature set, with cryptographic guarantees.</p>
+<p><strong>Programmable privacy:</strong> Aztec provides full privacy across transactions, state, and compute. Private smart contracts in Noir. Mainnet launched late 2025; enterprise-grade throughput still maturing.</p>
+<p><strong>Compliance-first mechanisms:</strong> Privacy Pools (Vitalik co-authored) lets users prove funds are clean without revealing full history. Designed for the regulatory problem from day one. Live on mainnet.</p>
+<p><strong>Mature shielding:</strong> Railgun and similar ZK privacy pools have processed billions in shielded volume across Ethereum and L2s.</p>
+<p><strong>Others:</strong> Fhenix and Zama (FHE-based), Shutter Network (encrypted mempool), Renegade (dark pools), EY Nightfall and Miden (privacy rollups). For a comprehensive map of privacy solutions, see the <a href="https://github.com/ethereum/iptf-map">IPTF Privacy Map</a>.</p>
+<p><strong>Why this matters beyond features:</strong></p>
+<p><em>Resilience.</em> Ethereum has operated without a complete outage since 2015, over a decade. AWS, Cloudflare, Facebook have all gone down in that period. This is the strongest argument for decentralized infrastructure.</p>
+<p><em>Censorship resistance.</em> No single entity can block transaction inclusion. For cross-border operations where jurisdictional conflicts arise, this matters.</p>
+<p><em>Economics.</em> SaaS licensing vs gas costs. Utility pricing is transparent, predictable, and has no lock-in. SaaS licensing scales with vendor leverage, not your usage. Over a decade, this compounds.</p>
+<p><em>Finality.</em> Canton’s deterministic finality<sup><a href="#user-content-fn-4" id="user-content-fnref-4" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup> is real. L2s are closing the gap with sub-second ZK finality. For most institutional workflows, the difference is immaterial. It matters for high-frequency trading or real-time settlement, but those are edge cases.</p>
+<p><em>Regulation.</em> Public infrastructure ≠ unregulated activity. Regulators in Singapore, EU, and elsewhere increasingly engage with public chains directly.</p>
+<h2 id="5-due-diligence-checklist">5. Due Diligence Checklist</h2>
+<p>Seven questions that reveal architectural constraints:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>#</th><th>Question</th><th>What It Reveals</th></tr></thead><tbody><tr><td>1</td><td><strong>The Exit Test:</strong> If the vendor disappears, does the network state survive?</td><td>Public: yes (state lives on L1). Permissioned: no.</td></tr><tr><td>2</td><td><strong>Privacy Model:</strong> Is privacy enforced by policy or by mathematics?</td><td>Trust-based privacy vs cryptographic: fundamentally different risk profiles.</td></tr><tr><td>3</td><td><strong>Liquidity Access:</strong> Can assets move to DeFi and stablecoins without bespoke bridges?</td><td>Ecosystem isolation vs composability.</td></tr><tr><td>4</td><td><strong>Governance:</strong> Who holds the admin keys to change network rules?</td><td>Consortium voting vs protocol-level governance.</td></tr><tr><td>5</td><td><strong>Talent:</strong> Is your developer pool proprietary or global?</td><td>DAML (~200 contributors) vs Solidity/Rust (thousands monthly active).</td></tr><tr><td>6</td><td><strong>Portability:</strong> Can the stack move jurisdictions or platforms without a rewrite?</td><td>Vendor lock-in vs open standards and modularity.</td></tr><tr><td>7</td><td><strong>Finality:</strong> Is settlement deterministic or probabilistic?</td><td>Canton advantage here. L2s closing gap.</td></tr></tbody></table>
+<p><strong>Comparison Matrix</strong></p>
+<p>How the two approaches compare across key dimensions:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Dimension</th><th>Canton</th><th>Ethereum Privacy Stack</th></tr></thead><tbody><tr><td>Privacy model</td><td>Trust-based privacy</td><td>Cryptographic</td></tr><tr><td>Smart contracts</td><td>DAML (non-standard stack)</td><td>Solidity/EVM (open)</td></tr><tr><td>Developer ecosystem</td><td>~200 contributors</td><td>Thousands monthly active</td></tr><tr><td>Settlement finality</td><td>Deterministic</td><td>L1 ~12 min; L2s ~1s soft finality</td></tr><tr><td>Cross-domain atomicity</td><td>2PC (all must respond)</td><td>Shared L1 settlement</td></tr><tr><td>Composability</td><td>Isolated domains</td><td>DeFi interoperability</td></tr><tr><td>Governance</td><td>Super Validators (consortium)</td><td>Protocol-level</td></tr><tr><td>Exit risk</td><td>Vendor-dependent</td><td>Self-sovereign</td></tr><tr><td>TCO model</td><td>SaaS</td><td>Utility</td></tr><tr><td>Track record</td><td>Canton Network: ~2 years</td><td>~10 years, no complete outages</td></tr></tbody></table>
+<p><img src="/assets/images/2026-01-30-public-rails-vs-private-ledgers/architecture_comparison.png" alt="Architecture Comparison"></p>
+<p><strong>Key difference:</strong> Canton failures are correlated (one domain down stops the entire cross-domain transaction). Public L2 failures are isolated (L2 down doesn’t stop the L1 or other L2s).</p>
+<p><img src="/assets/images/2026-01-30-public-rails-vs-private-ledgers/betting_slips.png" alt="What You&#x27;re Betting On"></p>
+<h2 id="closing">Closing</h2>
+<p>If you need the consortium to trust operators anyway, the blockchain adds complexity without delivering on its original promise: removing that trust requirement.</p>
+<p>For institutions with genuine privacy requirements (adversarial counterparties, long-duration commitments, cross-border exposure, regulatory uncertainty), public blockchains with cryptographic privacy represent the architecture most aligned with what the technology was designed for.</p>
+<p>The Ethereum privacy stack is live, battle-tested, and increasingly enterprise-ready. The seven questions above will tell you whether it fits your requirements.</p>
+<p>For implementation patterns and institutional guidance, see the <a href="https://github.com/ethereum/iptf-map">IPTF Privacy Map</a> or contact the <a href="https://iptf.ethereum.org/">Institutional Privacy Task Force</a>.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.canton.network/blog/a-technical-primer">Canton Technical Primer</a></li>
+<li><a href="https://docs.sync.global/">Global Synchronizer Docs</a></li>
+<li><a href="https://github.com/digital-asset/daml">DAML GitHub</a></li>
+<li><a href="https://docs.zksync.io/zk-stack/prividium">ZKsync Prividium</a></li>
+<li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4563364">Privacy Pools Paper</a></li>
+<li><a href="https://aztec.network/">Aztec Network</a></li>
+<li><a href="https://railgun.org/">Railgun</a></li>
+<li><a href="https://www.mas.gov.sg/schemes-and-initiatives/project-guardian">MAS Project Guardian</a></li>
+<li><a href="https://www.developerreport.com/">Electric Capital Developer Report</a></li>
+</ul>
+<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="user-content-fn-1">
+<p>This figure refers to “represented” RWA (traditional assets with blockchain-based records), not “distributed” RWA where the asset itself is natively on-chain. See <a href="https://rwa.xyz/blog/a-new-framework-for-tokenized-assets-distributed-and-represented">rwa.xyz’s framework</a> for the distinction. <a href="#user-content-fnref-1" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-3">
+<p>See <a href="https://www.developerreport.com/">Electric Capital Developer Report</a>. <a href="#user-content-fnref-3" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-2">
+<p>ZKsync’s Atlas upgrade (October 2025) targets 10,000+ TPS. Actual throughput depends on transaction complexity and proving infrastructure. <a href="#user-content-fnref-2" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-4">
+<p><em>Finality</em> refers to when a transaction is irreversibly settled. Deterministic finality means immediate and absolute. <a href="#user-content-fnref-4" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref">↩</a></p>
+</li>
+</ol>
+</section> </div>    <footer class="article-footer" data-astro-cid-oebh424b><p class="sibling-line" data-astro-cid-oebh424b><a href="/blog/" data-astro-cid-oebh424b>More writeups<span class="arr" data-astro-cid-oebh424b>→</span></a></p><p class="reviewed-line" data-astro-cid-oebh424b>Last reviewed <strong data-astro-cid-oebh424b>2026-01-30</strong></p></footer>  </article>  </div> </div> </section>   </main> <footer class="site" data-astro-cid-gcn2mc3v> <div class="container" data-astro-cid-gcn2mc3v> <div class="foot-grid" data-astro-cid-gcn2mc3v> <div class="foot-brand" data-astro-cid-gcn2mc3v> <a class="brand" href="/" aria-label="IPTF — Institutional Privacy Task Force, an Ethereum Foundation initiative" data-astro-cid-gcn2mc3v> <img class="brand-logo" src="/logo-dark.svg" alt="IPTF — Institutional Privacy Task Force" width="219" height="40" data-astro-cid-gcn2mc3v> </a> <p data-astro-cid-gcn2mc3v>A working knowledge base for institutions arriving at Ethereum with privacy requirements. Maintained by the IPTF team.</p> </div> <div data-astro-cid-gcn2mc3v> <h5 data-astro-cid-gcn2mc3v>The Guide</h5> <ul data-astro-cid-gcn2mc3v> <li data-astro-cid-gcn2mc3v><a href="/use-cases/" data-astro-cid-gcn2mc3v>Use cases</a></li> <li data-astro-cid-gcn2mc3v><a href="/approaches/" data-astro-cid-gcn2mc3v>Approaches</a></li> <li data-astro-cid-gcn2mc3v><a href="/patterns/" data-astro-cid-gcn2mc3v>Building blocks</a></li> <li data-astro-cid-gcn2mc3v><a href="/vendors/" data-astro-cid-gcn2mc3v>Vendor profiles</a></li> <li data-astro-cid-gcn2mc3v><a href="/jurisdictions/" data-astro-cid-gcn2mc3v>Jurisdictions</a></li> <li data-astro-cid-gcn2mc3v><a href="/domains/" data-astro-cid-gcn2mc3v>Domains</a></li> <li data-astro-cid-gcn2mc3v><a href="/blog/" data-astro-cid-gcn2mc3v>Blog</a></li> </ul> </div> <div data-astro-cid-gcn2mc3v> <h5 data-astro-cid-gcn2mc3v>Standing matter</h5> <ul data-astro-cid-gcn2mc3v> <li data-astro-cid-gcn2mc3v><a href="/about/" data-astro-cid-gcn2mc3v>About IPTF</a></li> <li data-astro-cid-gcn2mc3v><a href="/faq/" data-astro-cid-gcn2mc3v>FAQ</a></li> <li data-astro-cid-gcn2mc3v><a href="https://github.com/ethereum/iptf-map/blob/master/CONTRIBUTING.md" data-astro-cid-gcn2mc3v>Contributing</a></li> <li data-astro-cid-gcn2mc3v><a href="/glossary/" data-astro-cid-gcn2mc3v>Glossary</a></li> <li data-astro-cid-gcn2mc3v><a href="https://github.com/ethereum/iptf-map/blob/master/CHANGELOG.md" data-astro-cid-gcn2mc3v>Changelog</a></li> </ul> </div> <div data-astro-cid-gcn2mc3v> <h5 data-astro-cid-gcn2mc3v>Source</h5> <ul data-astro-cid-gcn2mc3v> <li data-astro-cid-gcn2mc3v><a href="https://github.com/ethereum/iptf-map" data-astro-cid-gcn2mc3v>github · iptf-map</a></li> <li data-astro-cid-gcn2mc3v><a href="https://github.com/ethereum/iptf-pocs" data-astro-cid-gcn2mc3v>github · iptf-pocs</a></li> <li data-astro-cid-gcn2mc3v><a href="/rfps/" data-astro-cid-gcn2mc3v>Request For Proposals (RFPs)</a></li> </ul> </div> </div> <div class="foot-bottom" data-astro-cid-gcn2mc3v> <span data-astro-cid-gcn2mc3v>© Ethereum Foundation · Institutional Privacy Task Force</span> </div> </div> </footer> <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Site navigation" data-astro-cid-7j2ng5nb> <button class="nav-close" aria-label="Close menu" data-astro-cid-7j2ng5nb>&times;</button> <nav class="nav-overlay-menu" data-astro-cid-7j2ng5nb> <a href="/" data-astro-cid-7j2ng5nb>Home</a> <a href="/approaches/" data-astro-cid-7j2ng5nb>Approaches</a> <a href="/use-cases/" data-astro-cid-7j2ng5nb>Use cases</a> <a href="/patterns/" data-astro-cid-7j2ng5nb>Building blocks</a> <a href="/blog/" data-astro-cid-7j2ng5nb>Blog</a> <a href="/about/" data-astro-cid-7j2ng5nb>About</a> <a href="https://docs.google.com/forms/d/e/1FAIpQLScK2SW0fxXU_h6SGPiBCRiodWFuv-H1BfA3wXh79RPbOT8OKg/viewform" class="cta" target="_blank" rel="noopener" data-astro-cid-7j2ng5nb>Contact us</a> </nav> </div>  <script type="module">const n=document.querySelector(".nav-toggle"),e=document.querySelector("#navOverlay"),c=e?.querySelector(".nav-close"),r=e?.querySelectorAll("a");function s(){e&&(e.classList.add("open"),document.body.style.overflow="hidden",n?.setAttribute("aria-expanded","true"))}function o(){e&&(e.classList.remove("open"),document.body.style.overflow="",n?.setAttribute("aria-expanded","false"))}n?.addEventListener("click",s);c?.addEventListener("click",o);r?.forEach(t=>t.addEventListener("click",o));document.addEventListener("keydown",t=>{t.key==="Escape"&&o()});</script></body></html>

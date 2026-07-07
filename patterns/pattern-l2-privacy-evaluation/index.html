@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>L2 Privacy Evaluation Framework · Pattern · IPTF</title><meta name="description" content="Give institutions a vendor-neutral, sourced methodology for comparing privacy-preserving L2 solutions across performance and cost, privacy and Data Availability, and security and governance. The framework defines a common workload so that self-reported metrics can be placed next to independent benchmarks on the same axes."><link rel="canonical" href="https://iptf.ethereum.org/patterns/pattern-l2-privacy-evaluation/"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="icon" type="image/png" sizes="256x256" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"><meta property="og:type" content="website"><meta property="og:title" content="L2 Privacy Evaluation Framework · Pattern · IPTF"><meta property="og:description" content="Give institutions a vendor-neutral, sourced methodology for comparing privacy-preserving L2 solutions across performance and cost, privacy and Data Availability, and security and governance. The framework defines a common workload so that self-reported metrics can be placed next to independent benchmarks on the same axes."><link rel="stylesheet" href="/_astro/BaseLayout.DKixhPwc.css">
+<style>.rail-connections[data-astro-cid-spbxdeus]{position:sticky;top:5.5rem;align-self:start;font-size:14px}@media(max-width:900px){.rail-connections[data-astro-cid-spbxdeus]{position:static}}.backrefs[data-astro-cid-spbxdeus]{background:var(--color-bg);border:1px dashed var(--color-border);border-radius:var(--radius-md);padding:1rem 1.1rem}.backref-title[data-astro-cid-spbxdeus]{font-family:var(--font-mono);font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:.65rem}.backref-group[data-astro-cid-spbxdeus]{border-bottom:1px dashed var(--color-border);padding:.45rem 0}.backref-group[data-astro-cid-spbxdeus]:last-child{border-bottom:none;padding-bottom:0}.backref-group[data-astro-cid-spbxdeus]:first-of-type{padding-top:0}.backref-summary[data-astro-cid-spbxdeus]{list-style:none;cursor:pointer;display:flex;align-items:center;gap:.5rem;padding:.3rem 0;transition:color var(--duration-fast) var(--easing-soft)}.backref-summary[data-astro-cid-spbxdeus]::-webkit-details-marker{display:none}.backref-summary[data-astro-cid-spbxdeus]:hover{color:var(--color-cta)}.backref-summary[data-astro-cid-spbxdeus]:after{content:"+";color:var(--color-text-faint);font-size:.9rem;font-weight:700;line-height:1;margin-left:.1rem}.backref-group[data-astro-cid-spbxdeus][open]>.backref-summary[data-astro-cid-spbxdeus]:after{content:"−"}.backref-subheading[data-astro-cid-spbxdeus]{font-family:var(--font-sans);font-size:12px;font-weight:600;color:var(--color-text-secondary)}.backref-count[data-astro-cid-spbxdeus]{display:inline-block;padding:1px 8px;border-radius:999px;background:var(--color-bg-subtle);color:var(--color-text-secondary);font-family:var(--font-mono);font-size:.62rem;font-weight:700;letter-spacing:.02em;margin-left:auto;margin-right:.4rem}.backref-group--featured[data-astro-cid-spbxdeus]{background:var(--color-success-tint);border:1px solid var(--color-success);border-radius:var(--radius-sm);padding:.5rem .7rem;margin:.25rem -.25rem}.backref-group--featured[data-astro-cid-spbxdeus]+.backref-group[data-astro-cid-spbxdeus],.backref-group[data-astro-cid-spbxdeus]+.backref-group--featured[data-astro-cid-spbxdeus]{border-top:none}.backref-group--featured[data-astro-cid-spbxdeus] .backref-subheading[data-astro-cid-spbxdeus]{color:var(--color-success-strong);font-weight:700}.backref-group--featured[data-astro-cid-spbxdeus] .backref-count[data-astro-cid-spbxdeus]{background:#10b98133;color:var(--color-success-strong)}.backref-group--featured[data-astro-cid-spbxdeus] .link-list[data-astro-cid-spbxdeus] a[data-astro-cid-spbxdeus]{color:var(--color-primary);font-weight:600}.backref-group--featured[data-astro-cid-spbxdeus] .link-list[data-astro-cid-spbxdeus] a[data-astro-cid-spbxdeus]:before{color:var(--color-success-strong)}.link-list[data-astro-cid-spbxdeus]{display:flex;flex-direction:column;gap:.45rem;list-style:none;margin:.4rem 0 0;padding:0}.link-list[data-astro-cid-spbxdeus] li[data-astro-cid-spbxdeus]{list-style:none}.link-list[data-astro-cid-spbxdeus] a[data-astro-cid-spbxdeus]{color:var(--color-primary);font-size:13.5px;font-weight:500;line-height:1.4;display:inline-flex;align-items:baseline;gap:.35rem;text-decoration:none;transition:color var(--duration-fast) var(--easing-soft),text-decoration-color var(--duration-fast) var(--easing-soft)}.link-list[data-astro-cid-spbxdeus] a[data-astro-cid-spbxdeus]:before{content:"→";color:var(--color-cta);font-weight:600;transition:transform var(--duration-fast) var(--easing-soft);flex-shrink:0}.link-list[data-astro-cid-spbxdeus] a[data-astro-cid-spbxdeus]:hover{color:var(--color-cta)}.link-list[data-astro-cid-spbxdeus] a[data-astro-cid-spbxdeus]:hover:before{color:var(--color-cta);transform:translate(2px)}
+.page-header[data-astro-cid-wu5dj4rx]{padding:4.5rem 0 2rem;background:radial-gradient(ellipse 60% 50% at 90% 10%,rgba(49,130,206,.05),transparent 60%)}.page-header--centered[data-astro-cid-wu5dj4rx] .container[data-astro-cid-wu5dj4rx]{text-align:center}.page-header--centered[data-astro-cid-wu5dj4rx] .breadcrumb[data-astro-cid-wu5dj4rx]{justify-content:center}.page-header--centered[data-astro-cid-wu5dj4rx] h1[data-astro-cid-wu5dj4rx],.page-header--centered[data-astro-cid-wu5dj4rx] .lede[data-astro-cid-wu5dj4rx],.page-header--centered[data-astro-cid-wu5dj4rx] .meta-row[data-astro-cid-wu5dj4rx]{margin-left:auto;margin-right:auto;text-align:center}.page-header--centered[data-astro-cid-wu5dj4rx] .meta-pills[data-astro-cid-wu5dj4rx]{justify-content:center}.page-header--centered[data-astro-cid-wu5dj4rx] .lede-bullets[data-astro-cid-wu5dj4rx]{margin-left:auto;margin-right:auto;text-align:left}.breadcrumb[data-astro-cid-wu5dj4rx]{font-family:var(--font-mono);font-size:12px;letter-spacing:.04em;color:var(--color-text-muted);margin-bottom:1.5rem;display:flex;flex-wrap:wrap;gap:.25rem;align-items:center}.breadcrumb[data-astro-cid-wu5dj4rx] a[data-astro-cid-wu5dj4rx]{color:var(--color-text-secondary)}.breadcrumb[data-astro-cid-wu5dj4rx] a[data-astro-cid-wu5dj4rx]:hover{color:var(--color-cta)}.breadcrumb[data-astro-cid-wu5dj4rx] .sep[data-astro-cid-wu5dj4rx]{color:var(--color-border-strong);margin:0 .4rem}.page-header[data-astro-cid-wu5dj4rx] h1[data-astro-cid-wu5dj4rx]{font-family:var(--font-sans);font-weight:700;font-size:clamp(2.25rem,4.4vw,3.05rem);line-height:1.08;letter-spacing:-.028em;color:var(--color-primary);margin-bottom:1.25rem;max-width:26ch;text-wrap:balance;min-width:0}.page-header[data-astro-cid-wu5dj4rx] h1[data-astro-cid-wu5dj4rx]:last-child{margin-bottom:0}.page-header[data-astro-cid-wu5dj4rx] .lede[data-astro-cid-wu5dj4rx]{font-size:1.0625rem;line-height:1.65;color:var(--color-text-secondary);max-width:64ch}.page-header[data-astro-cid-wu5dj4rx] .lede[data-astro-cid-wu5dj4rx] strong{color:var(--color-primary);font-weight:600}.page-header[data-astro-cid-wu5dj4rx] .lede-bullets[data-astro-cid-wu5dj4rx]{margin:0;padding-left:1.25rem;max-width:64ch;list-style:disc;color:var(--color-text-secondary)}.page-header[data-astro-cid-wu5dj4rx] .lede-bullets[data-astro-cid-wu5dj4rx] li[data-astro-cid-wu5dj4rx]{font-size:1.0625rem;line-height:1.65;margin-top:.4rem}.page-header[data-astro-cid-wu5dj4rx] .lede-bullets[data-astro-cid-wu5dj4rx] li[data-astro-cid-wu5dj4rx]:first-child{margin-top:0}.page-header[data-astro-cid-wu5dj4rx] .lede-bullets[data-astro-cid-wu5dj4rx] strong{color:var(--color-primary);font-weight:600}.page-header[data-astro-cid-wu5dj4rx] .meta-row[data-astro-cid-wu5dj4rx]{margin-top:1.25rem;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.04em;color:var(--color-text-muted)}.page-header[data-astro-cid-wu5dj4rx] .meta-row[data-astro-cid-wu5dj4rx] strong{color:var(--color-primary);font-weight:600}.meta-pills[data-astro-cid-wu5dj4rx]{margin-top:1.25rem;display:flex;flex-wrap:wrap;gap:.6rem;font-family:var(--font-mono);font-size:11.5px}.meta-pill[data-astro-cid-wu5dj4rx]{background:var(--color-bg-subtle);border:1px solid var(--color-border);padding:.3rem .7rem;border-radius:99px;color:var(--color-text-secondary)}.meta-pill[data-astro-cid-wu5dj4rx] strong[data-astro-cid-wu5dj4rx]{color:var(--color-primary);font-weight:600}
+.article-footer[data-astro-cid-oebh424b]{margin-top:3.5rem;padding-top:2rem;border-top:1px solid var(--color-border)}.continue[data-astro-cid-oebh424b] h4[data-astro-cid-oebh424b]{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:1rem}.continue-grid[data-astro-cid-oebh424b]{display:grid;grid-template-columns:repeat(2,1fr);gap:.65rem}@media(max-width:600px){.continue-grid[data-astro-cid-oebh424b]{grid-template-columns:1fr}}.continue-card[data-astro-cid-oebh424b]{display:grid;grid-template-columns:1fr auto;align-items:center;gap:.5rem .85rem;padding:.85rem 1rem;border:1px solid var(--color-border);border-radius:var(--radius-md);text-decoration:none;color:var(--color-text);background:var(--color-bg);transition:border-color var(--duration-fast) var(--easing-soft),background var(--duration-fast) var(--easing-soft),transform var(--duration-fast) var(--easing-soft)}.continue-card[data-astro-cid-oebh424b]:hover{border-color:var(--color-cta);background:var(--color-bg-subtle);transform:translateY(-1px)}.continue-card[data-astro-cid-oebh424b] .kind[data-astro-cid-oebh424b]{grid-column:1;grid-row:1;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-muted)}.continue-card[data-astro-cid-oebh424b] .title[data-astro-cid-oebh424b]{grid-column:1;grid-row:2;font-family:var(--font-sans);font-size:14.5px;font-weight:600;color:var(--color-primary);line-height:1.3}.continue-card[data-astro-cid-oebh424b] .arr[data-astro-cid-oebh424b]{grid-column:2;grid-row:1 / span 2;color:var(--color-cta);font-weight:700;transition:transform var(--duration-fast) var(--easing-soft)}.continue-card[data-astro-cid-oebh424b]:hover .arr[data-astro-cid-oebh424b]{transform:translate(3px)}.sibling-line[data-astro-cid-oebh424b]{margin-top:1.5rem;font-size:14.5px}.sibling-line[data-astro-cid-oebh424b] a[data-astro-cid-oebh424b]{color:var(--color-cta);font-weight:600;text-decoration:none}.sibling-line[data-astro-cid-oebh424b] a[data-astro-cid-oebh424b]:hover{text-decoration:underline}.sibling-line[data-astro-cid-oebh424b] .arr[data-astro-cid-oebh424b]{transition:transform var(--duration-fast) var(--easing-soft);display:inline-block}.sibling-line[data-astro-cid-oebh424b] a[data-astro-cid-oebh424b]:hover .arr[data-astro-cid-oebh424b]{transform:translate(2px)}.reviewed-line[data-astro-cid-oebh424b]{margin-top:1.25rem;font-family:var(--font-mono);font-size:11.5px;color:var(--color-text-muted);letter-spacing:.04em}.reviewed-line[data-astro-cid-oebh424b] strong[data-astro-cid-oebh424b]{color:var(--color-text-secondary);font-weight:600}
+.detail[data-astro-cid-55ylfk6n]{padding:1.5rem 0 4rem}.detail-grid[data-astro-cid-55ylfk6n]{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:3rem;align-items:start}.detail--centered[data-astro-cid-55ylfk6n] .detail-grid[data-astro-cid-55ylfk6n]{grid-template-columns:minmax(0,1fr)}.detail--centered[data-astro-cid-55ylfk6n] .detail-body[data-astro-cid-55ylfk6n]{width:100%;max-width:720px;margin-left:auto;margin-right:auto}@media(max-width:900px){.detail-grid[data-astro-cid-55ylfk6n]{grid-template-columns:minmax(0,1fr);gap:2rem}}.detail-body[data-astro-cid-55ylfk6n]{min-width:0}.detail-body>:first-child,.detail-grid>aside>:first-child,.detail-grid>aside section:first-child,.detail-grid>aside details:first-child,.detail-body>section:first-child{margin-top:0}
+.entry-facts[data-astro-cid-klc6ctnw]{margin:1.5rem 0 2.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.9rem}.fact-block[data-astro-cid-klc6ctnw]{padding:1.1rem 1.25rem 1.2rem;border:1px solid var(--color-border);border-radius:var(--radius-md)}.fact-block--good[data-astro-cid-klc6ctnw]{background:var(--color-success-tint);border-color:var(--color-success-tint-strong)}.fact-block--bad[data-astro-cid-klc6ctnw]{background:var(--color-danger-tint);border-color:var(--color-danger-tint-strong)}.fact-block--n0[data-astro-cid-klc6ctnw]{background:var(--color-bg-subtle)}.fact-block--n1[data-astro-cid-klc6ctnw]{background:var(--color-cta-tint);border-color:var(--color-cta-border)}.fact-block--n2[data-astro-cid-klc6ctnw]{background:var(--color-violet-tint);border-color:var(--color-violet-tint-strong)}.fact-block[data-astro-cid-klc6ctnw] h4[data-astro-cid-klc6ctnw]{font-family:var(--font-sans);font-size:.95rem;font-weight:700;letter-spacing:-.01em;margin:0 0 .7rem}.fact-block--good[data-astro-cid-klc6ctnw] h4[data-astro-cid-klc6ctnw]{color:var(--color-success-strong)}.fact-block--bad[data-astro-cid-klc6ctnw] h4[data-astro-cid-klc6ctnw]{color:var(--color-danger)}.fact-block--n0[data-astro-cid-klc6ctnw] h4[data-astro-cid-klc6ctnw]{color:var(--color-text-muted)}.fact-block--n1[data-astro-cid-klc6ctnw] h4[data-astro-cid-klc6ctnw]{color:var(--color-cta)}.fact-block--n2[data-astro-cid-klc6ctnw] h4[data-astro-cid-klc6ctnw]{color:var(--color-violet)}.fact-block[data-astro-cid-klc6ctnw] ul[data-astro-cid-klc6ctnw]{display:flex;flex-direction:column;gap:.45rem;margin:0;padding:0;list-style:none}.fact-block[data-astro-cid-klc6ctnw] li[data-astro-cid-klc6ctnw]{padding-left:1rem;position:relative;font-size:14px;color:var(--color-text);line-height:1.55}.fact-block[data-astro-cid-klc6ctnw] li[data-astro-cid-klc6ctnw]:before{content:"·";position:absolute;left:.3rem;font-weight:700}.fact-block--good[data-astro-cid-klc6ctnw] li[data-astro-cid-klc6ctnw]:before{color:var(--color-success-strong)}.fact-block--bad[data-astro-cid-klc6ctnw] li[data-astro-cid-klc6ctnw]:before{color:var(--color-danger)}.fact-block--n0[data-astro-cid-klc6ctnw] li[data-astro-cid-klc6ctnw]:before{color:var(--color-text-muted)}.fact-block--n1[data-astro-cid-klc6ctnw] li[data-astro-cid-klc6ctnw]:before{color:var(--color-cta)}.fact-block--n2[data-astro-cid-klc6ctnw] li[data-astro-cid-klc6ctnw]:before{color:var(--color-violet)}
+</style>
+<link rel="stylesheet" href="/_astro/CropsPie.-v-ngmin.css">
+<link rel="stylesheet" href="/_astro/_slug_.ChszM38E.css"></head> <body> <header class="nav-bar" data-astro-cid-ymhdp2rl> <div class="container nav-inner" data-astro-cid-ymhdp2rl> <a class="brand" href="/" aria-label="IPTF — Institutional Privacy Task Force, an Ethereum Foundation initiative" data-astro-cid-ymhdp2rl> <img class="brand-logo" src="/logo.svg" alt="IPTF — Institutional Privacy Task Force" width="219" height="40" data-astro-cid-ymhdp2rl> </a> <nav class="nav-primary" data-astro-cid-ymhdp2rl> <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navOverlay" data-astro-cid-ymhdp2rl> <span data-astro-cid-ymhdp2rl></span><span data-astro-cid-ymhdp2rl></span><span data-astro-cid-ymhdp2rl></span> </button> <a href="/approaches/" data-astro-cid-ymhdp2rl>Approaches</a> <a href="/use-cases/" data-astro-cid-ymhdp2rl>Use cases</a> <a href="/patterns/" class="active" data-astro-cid-ymhdp2rl>Building blocks</a> <a href="/blog/" data-astro-cid-ymhdp2rl>Blog</a> <a href="/about/" data-astro-cid-ymhdp2rl>About</a> <a href="https://docs.google.com/forms/d/e/1FAIpQLScK2SW0fxXU_h6SGPiBCRiodWFuv-H1BfA3wXh79RPbOT8OKg/viewform" class="btn ghost nav-cta" target="_blank" rel="noopener" data-astro-cid-ymhdp2rl>Contact us<span class="ext-icon" aria-hidden="true" data-astro-cid-ymhdp2rl><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-ymhdp2rl><path d="M7 17L17 7M9 7h8v8" data-astro-cid-ymhdp2rl></path></svg></span></a> </nav> </div> </header> <main>  <header class="page-header" data-astro-cid-wu5dj4rx> <div class="container" data-astro-cid-wu5dj4rx> <nav class="breadcrumb" aria-label="Breadcrumb" data-astro-cid-wu5dj4rx> <a href="/" data-astro-cid-wu5dj4rx>Home</a><span class="sep" data-astro-cid-wu5dj4rx>/</span><a href="/patterns/" data-astro-cid-wu5dj4rx>Building blocks</a><span class="sep" data-astro-cid-wu5dj4rx>/</span><span data-astro-cid-wu5dj4rx>L2 Privacy Evaluation Framework</span> </nav> <h1 data-astro-cid-wu5dj4rx>L2 Privacy Evaluation Framework</h1>  <p class="lede" data-astro-cid-wu5dj4rx>Give institutions a vendor-neutral, sourced methodology for comparing privacy-preserving L2 solutions across performance and cost, privacy and Data Availability, and security and governance. The framework defines a common workload so that self-reported metrics can be placed next to independent benchmarks on the same axes.</p>   </div> </header> <section class="detail " data-astro-cid-55ylfk6n> <div class="container" data-astro-cid-55ylfk6n> <div class="detail-grid" data-astro-cid-55ylfk6n> <article class="detail-body" data-astro-cid-55ylfk6n>  <section class="entry-facts" data-astro-cid-klc6ctnw><div class="fact-block fact-block--good" data-astro-cid-klc6ctnw><h4 data-astro-cid-klc6ctnw>Works best when</h4><ul data-astro-cid-klc6ctnw><li data-astro-cid-klc6ctnw>Multiple privacy L2s must be compared for an institutional deployment decision.</li><li data-astro-cid-klc6ctnw>Throughput, security, and censorship resistance have to be placed side by side across heterogeneous architectures.</li><li data-astro-cid-klc6ctnw>A consistent, sourced methodology is needed so that procurement and risk teams can review the same evidence.</li></ul></div><div class="fact-block fact-block--bad" data-astro-cid-klc6ctnw><h4 data-astro-cid-klc6ctnw>Avoid when</h4><ul data-astro-cid-klc6ctnw><li data-astro-cid-klc6ctnw>The L2 under review has no privacy features; use a general L2 scorecard instead.</li><li data-astro-cid-klc6ctnw>A single vendor is already chosen and only vendor docs need verification.</li></ul></div></section> <section class="ctx-diff" data-astro-cid-mgyx7rmz> <h3 data-astro-cid-mgyx7rmz>I2I vs I2U — context differences</h3> <div class="grid" data-astro-cid-mgyx7rmz> <article class="card card-i2i" data-astro-cid-mgyx7rmz> <header data-astro-cid-mgyx7rmz> <h4 data-astro-cid-mgyx7rmz>Institution to institution</h4> <span class="tag" data-astro-cid-mgyx7rmz>I2I</span> </header> <p data-astro-cid-mgyx7rmz>Between institutions the framework is used by procurement, risk, and ops teams to weigh counterparty-aligned criteria such as force-inclusion SLAs, compliance features, and DA trust assumptions. Both sides can cross-review the filled table.</p> </article> <article class="card card-i2u" data-astro-cid-mgyx7rmz> <header data-astro-cid-mgyx7rmz> <h4 data-astro-cid-mgyx7rmz>Institution to end user</h4> <span class="tag" data-astro-cid-mgyx7rmz>I2U</span> </header> <p data-astro-cid-mgyx7rmz>For user-facing deployments the framework surfaces asymmetries that matter to end users: client proving cost, availability of forced exits without operator cooperation, and whether disclosure can be compelled unilaterally by the operator.</p> </article> </div> </section><section class="pq" data-astro-cid-2aosxhkx> <header class="head" data-astro-cid-2aosxhkx> <h3 data-astro-cid-2aosxhkx>Post-quantum exposure</h3> <span class="risk risk-low" data-astro-cid-2aosxhkx>Risk · low</span> </header> <dl data-astro-cid-2aosxhkx> <div class="row" data-astro-cid-2aosxhkx> <dt data-astro-cid-2aosxhkx>Vector</dt> <dd data-astro-cid-2aosxhkx>The framework itself is a methodology, not a cryptographic primitive. One of its rows (<code>PQ Security</code>) flags HNDL exposure in the evaluated systems.</dd> </div> <div class="row" data-astro-cid-2aosxhkx> <dt data-astro-cid-2aosxhkx>Mitigation</dt> <dd data-astro-cid-2aosxhkx>Encourage each system to report post-quantum readiness in its row, and re-evaluate as systems migrate proof systems.</dd> </div> </dl> </section><div class="prose pattern-prose" data-astro-cid-pjne7374><h2>Components</h2>
+<ul>
+<li>Self-reported metric sheets collected from each L2 team, with a source link per cell.</li>
+<li>Independent benchmarks and risk reviews used to cross-check the self-reported values.</li>
+<li>A standardized workload (Simple Value Transfer) that fixes what a transaction means across heterogeneous architectures.</li>
+<li>A disclosure convention that records what each metric measures, what is excluded, and whether a value is <code>Pending</code> or <code>N/A</code>.</li>
+</ul>
+<h2>Protocol</h2>
+<ol>
+<li><span class="protocol-tag protocol-tag--evaluator">evaluator</span> Adopt Simple Value Transfer as the baseline workload.</li>
+<li><span class="protocol-tag protocol-tag--evaluator">evaluator</span> Request each L2 team to fill the three evaluation tables (performance, privacy and DA, security and governance).</li>
+<li><span class="protocol-tag protocol-tag--evaluator">evaluator</span> Require a source link for every claim (benchmark run, docs page, or paper).</li>
+<li><span class="protocol-tag protocol-tag--evaluator">evaluator</span> Mark <code>Pending</code> where data is missing and <code>N/A</code> where the metric does not apply to that architecture.</li>
+<li><span class="protocol-tag protocol-tag--evaluator">evaluator</span> Produce the comparative view; highlight trade-offs that matter for the target use case.</li>
+<li><span class="protocol-tag protocol-tag--evaluator">evaluator</span> Re-run the exercise on hard forks, client updates, or when a new benchmark is published.</li>
+</ol>
+<h2>Evaluation criteria</h2>
+<h3>1. Performance and cost</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Metric</th>
+<th align="left">Discrete metrics</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Max Throughput</td>
+<td align="left">Max theoretical TPS, tested peak TPS (with benchmark link). Report TPS<sub>Public</sub> and TPS<sub>Private</sub> separately</td>
+</tr>
+<tr>
+<td align="left">Transaction cost</td>
+<td align="left">Gas usage in <code>L1 gas units</code> + <code>L2 gas units</code> for Simple Value Transfer</td>
+</tr>
+<tr>
+<td align="left">Bridging and exit</td>
+<td align="left">L2 to L1 withdrawal and forced exit cost (gas units)</td>
+</tr>
+<tr>
+<td align="left">Finality time</td>
+<td align="left"><code>Soft Finality</code> (L2 inclusion), <code>Hard Finality</code> (L1 commitment + proof), <code>Challenge Period</code></td>
+</tr>
+<tr>
+<td align="left">Transaction retrieval</td>
+<td align="left">Sync mechanism (<code>Trial decryption</code>, <code>Detection Keys</code>, <code>Server-side filtering</code>) and sync speed</td>
+</tr>
+</tbody></table>
+<h3>2. Privacy and Data Availability</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Metric</th>
+<th align="left">Discrete metrics</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Level of privacy</td>
+<td align="left">What: <code>Balance</code>, <code>Sender/Receiver</code>, <code>Amount</code>, <code>Code/Function</code>, <code>Contract Bytecode</code>. Who sees: <code>Public</code>, <code>Sequencer</code>, <code>Prover</code></td>
+</tr>
+<tr>
+<td align="left">DA layer</td>
+<td align="left"><code>L1 Call Data</code>, <code>L1 Data Blobs (EIP-4844)</code>, <code>External DAC</code></td>
+</tr>
+<tr>
+<td align="left">DA trust</td>
+<td align="left"><code>Trustless/L1-secured</code>, <code>Trusted DAC</code></td>
+</tr>
+<tr>
+<td align="left">Data posted to L1</td>
+<td align="left"><code>Full Transaction Data</code>, <code>State Diff</code>, <code>Validity Proof Only</code></td>
+</tr>
+<tr>
+<td align="left">Compliance features</td>
+<td align="left"><code>Incoming Viewing Key</code>, <code>Outgoing Viewing Key</code>, <code>Full History Viewing Key</code></td>
+</tr>
+<tr>
+<td align="left">Privacy trust model</td>
+<td align="left">Base: <code>Cryptographic</code>, <code>Threshold (MPC/FHE)</code>. Collusion threshold: m-of-n</td>
+</tr>
+<tr>
+<td align="left">Network privacy</td>
+<td align="left">RPC privacy options (<code>Tor/I2P</code>, <code>Oblivious HTTP</code>, <code>Mixnet</code>)</td>
+</tr>
+</tbody></table>
+<h3>3. Security and governance</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Metric</th>
+<th align="left">Discrete metrics</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Sequencer decentralization</td>
+<td align="left"><code>Centralized</code>, <code>Permissioned Set</code>, <code>Decentralized Auction</code>, <code>Based (L1 Sequencing)</code></td>
+</tr>
+<tr>
+<td align="left">Censorship resistance</td>
+<td align="left">Mechanism: <code>Force inclusion</code>, <code>Escape Hatch</code>, <code>Council</code>. User burden: <code>Stateless</code>, <code>Merkle Witness</code>, <code>Full State Reconstruction</code>. Latency: <code>Immediate</code>, <code>Challenge Period</code></td>
+</tr>
+<tr>
+<td align="left">Prover mechanism</td>
+<td align="left">Access: <code>Whitelist</code>, <code>Permissionless</code>. System: <code>Plonk</code>, <code>Stark</code>, <code>FHE</code>, <code>Groth16</code></td>
+</tr>
+<tr>
+<td align="left">Upgrade process</td>
+<td align="left">Governance: <code>Multisig (m-of-n)</code>, <code>Immutable</code>, <code>DAO Vote</code>. Timelock: delay in days or hours</td>
+</tr>
+<tr>
+<td align="left">Client-side requirements</td>
+<td align="left">Client proving: <code>Yes</code>/<code>No</code>. Features: <code>Mobile Proving</code>, <code>Trusted Delegation</code>, <code>Blind Delegation</code></td>
+</tr>
+<tr>
+<td align="left">Finality security</td>
+<td align="left"><code>Validity (ZK)</code>, <code>Optimistic (Fraud Proofs)</code></td>
+</tr>
+<tr>
+<td align="left">Proof system setup</td>
+<td align="left"><code>Trusted Ceremony</code>, <code>Transparent</code></td>
+</tr>
+<tr>
+<td align="left">Programmability</td>
+<td align="left">Language: <code>EVM/Solidity</code>, <code>DSL</code>, <code>WASM</code>. Deployment: <code>Permissionless</code>, <code>Whitelisted</code></td>
+</tr>
+<tr>
+<td align="left">PQ security</td>
+<td align="left">Susceptible to HNDL attacks? (<code>Yes</code>/<code>No</code>)</td>
+</tr>
+</tbody></table>
+<h2>Simple Value Transfer</h2>
+<p>A protocol-native payment where a sender transfers an ERC-20 amount to a single recipient, resulting in a valid state transition. TPS<sub>Public</sub> measures transfer semantics that are publicly observable (L2 inclusion plus validity). TPS<sub>Private</sub> measures a full privacy mode that hides sender, recipient, and amount as applicable; optional features are excluded unless they are mandatory in the protocol. Features excluded when reporting TPS must not be implicitly assumed elsewhere. The definition does not equalize DA models, finality, confirmation UX, compliance features, or off-chain coordination.</p>
+<h2>Guarantees &amp; threat model</h2>
+<p>Guarantees:</p>
+<ul>
+<li>Consistent comparison criteria across heterogeneous L2 architectures.</li>
+<li>Separation of self-reported metrics from independently verified metrics.</li>
+<li>Clear visibility into what each system hides and from whom.</li>
+<li>Traceable claims: every metric requires a source.</li>
+</ul>
+<p>Threat model:</p>
+<ul>
+<li>Self-reported metrics may be optimistic; the source link is what anchors them.</li>
+<li>Some systems do not map cleanly to every row; the <code>N/A</code> marker is load-bearing.</li>
+<li>Criteria drift over time; periodic re-evaluation is required.</li>
+</ul>
+<h2>Trade-offs</h2>
+<ul>
+<li>The exercise is labor-intensive; automation via a benchmark pipeline helps.</li>
+<li>Architectural heterogeneity makes equal-weight scoring misleading; use the tables as input to a weighted decision, not an output score.</li>
+<li>Frozen snapshots age quickly; timestamp every filled table and link back to source commits where possible.</li>
+</ul>
+<h2>Targeted systems</h2>
+<p>Privacy L2s currently in scope: Aztec, Miden, Intmax, Prividium, Scroll Cloak, EY Nightfall. The framework also applies to privacy app layers on existing chains (shielded pools, enterprise privacy layers, FHE coprocessors), which share DA but not sequencer assumptions.</p>
+<h2>Results snapshot</h2>
+<p>Results below are drawn from public documentation and independent sources. Empty cells indicate data not yet publicly available; each published snapshot must be timestamped.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Protocol</th>
+<th align="left">Deployment</th>
+<th align="left">Privacy model</th>
+<th align="left">Proof system</th>
+<th align="left">DA</th>
+<th align="left">Client proving</th>
+<th align="left">Censorship resistance</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Aztec</td>
+<td align="left">Public L2</td>
+<td align="left">Cryptographic (ZK)</td>
+<td align="left">UltraHonk</td>
+<td align="left">L1 Blobs</td>
+<td align="left">Yes (heavy)</td>
+<td align="left">Escape Hatch</td>
+</tr>
+<tr>
+<td align="left">Miden</td>
+<td align="left">Public L2</td>
+<td align="left">Cryptographic (ZK)</td>
+<td align="left">STARK (Winterfell)</td>
+<td align="left">L1 Blobs</td>
+<td align="left">Yes (can be delegated)</td>
+<td align="left">TBD</td>
+</tr>
+<tr>
+<td align="left">Intmax</td>
+<td align="left">Public L2</td>
+<td align="left">Cryptographic (ZK)</td>
+<td align="left">Plonk/Gnark</td>
+<td align="left">Stateless (Client-Side)</td>
+<td align="left">Yes (light)</td>
+<td align="left">Force Inclusion</td>
+</tr>
+<tr>
+<td align="left">Prividium</td>
+<td align="left">AppChain SDK</td>
+<td align="left">Cryptographic (ZK)</td>
+<td align="left">Boojum/Plonk</td>
+<td align="left">External (Private DB)</td>
+<td align="left">No (server)</td>
+<td align="left">Operator-dependent</td>
+</tr>
+<tr>
+<td align="left">Scroll Cloak</td>
+<td align="left">AppChain SDK</td>
+<td align="left">Cryptographic (ZK)</td>
+<td align="left">Scroll zkEVM</td>
+<td align="left">Host chain</td>
+<td align="left">No (prover service)</td>
+<td align="left">Force Exit to host</td>
+</tr>
+<tr>
+<td align="left">EY Nightfall</td>
+<td align="left">AppChain SDK</td>
+<td align="left">Cryptographic (ZK)</td>
+<td align="left">UltraPlonk</td>
+<td align="left">L1 Call Data</td>
+<td align="left">Yes</td>
+<td align="left">TBD</td>
+</tr>
+</tbody></table>
+<p>AppChain SDKs have deployment-dependent assumptions (sequencer, DA, governance) that vary by operator. Public L2s offering hybrid modes (Aztec, Miden) let the developer choose between a public account model and a private UTXO note model; stateless or validium designs (Intmax, Prividium, Scroll Cloak) hide balances and transfer data by default.</p>
+<p>Snapshot last refreshed 2026-01-27. Sources: <a href="https://l2beat.com/">L2Beat</a>, <a href="https://docs.aztec.network/">Aztec Docs</a>, <a href="https://0xmiden.github.io/miden-vm/">Miden VM</a>, <a href="https://intmax.io/">Intmax</a>, <a href="https://eprint.iacr.org/2023/1082.pdf">Intmax2 Paper</a>, <a href="https://docs.zksync.io/zk-stack/prividium">Prividium Docs</a>, <a href="https://scroll-tech.github.io/cloak-documentation/">Cloak Docs</a>, <a href="https://github.com/EYBlockchain/nightfall_4_CE">Nightfall_4</a>.</p>
+<h2>Example</h2>
+<p>An OTC settlement team filters the table for cryptographic privacy, requires viewing keys for audit support, compares client proving cost against trust assumptions, and reviews censorship-resistance SLAs before choosing between an AppChain SDK and a public privacy L2.</p>
+<h2>See also</h2>
+<ul>
+<li><a href="https://l2beat.com/">L2Beat</a> - independent L2 risk analysis.</li>
+</ul>
+</div>  <section class="oss-list" data-astro-cid-impvzd5y> <h3 data-astro-cid-impvzd5y>Open-source implementations</h3> <ul data-astro-cid-impvzd5y> <li data-astro-cid-impvzd5y> <a href="https://github.com/l2beat/l2beat" target="_blank" rel="noopener" data-astro-cid-impvzd5y> <div class="head" data-astro-cid-impvzd5y> <span class="host" data-astro-cid-impvzd5y>github.com</span> <span class="lang" data-astro-cid-impvzd5y>TypeScript</span> </div> <p class="desc" data-astro-cid-impvzd5y>L2Beat open dataset and risk methodology used as a baseline for independently verified metrics</p> <span class="ext" aria-hidden="true" data-astro-cid-impvzd5y>↗</span> </a> </li> </ul> </section>     <footer class="article-footer" data-astro-cid-oebh424b><p class="sibling-line" data-astro-cid-oebh424b><a href="/patterns/" data-astro-cid-oebh424b>More L2 patterns<span class="arr" data-astro-cid-oebh424b>→</span></a></p><p class="reviewed-line" data-astro-cid-oebh424b>Last reviewed <strong data-astro-cid-oebh424b>2026-04-22</strong></p></footer>  </article>  <aside class="pattern-rail" data-astro-cid-pjne7374>   <aside class="rail-connections" data-astro-cid-spbxdeus><section class="backrefs" data-astro-cid-spbxdeus><h4 class="backref-title" data-astro-cid-spbxdeus>Referenced by</h4><details class="backref-group" data-astro-cid-spbxdeus><summary class="backref-summary" data-astro-cid-spbxdeus><span class="backref-subheading" data-astro-cid-spbxdeus>building blocks</span><span class="backref-count" data-astro-cid-spbxdeus>3</span></summary><ul class="link-list" data-astro-cid-spbxdeus><li data-astro-cid-spbxdeus><a href="/patterns/pattern-immutable-guarantees/" data-astro-cid-spbxdeus>Immutable Guarantees</a></li><li data-astro-cid-spbxdeus><a href="/patterns/pattern-modular-privacy-stack/" data-astro-cid-spbxdeus>Modular Privacy Stack</a></li><li data-astro-cid-spbxdeus><a href="/patterns/pattern-privacy-l2s/" data-astro-cid-spbxdeus>Privacy L2s</a></li></ul></details><details class="backref-group" data-astro-cid-spbxdeus><summary class="backref-summary" data-astro-cid-spbxdeus><span class="backref-subheading" data-astro-cid-spbxdeus>RFPs</span><span class="backref-count" data-astro-cid-spbxdeus>1</span></summary><ul class="link-list" data-astro-cid-spbxdeus><li data-astro-cid-spbxdeus><a href="/rfps/rfp-benchmark-dashboard/" data-astro-cid-spbxdeus>Living Benchmark Dashboard</a></li></ul></details></section></aside> </aside>  </div> </div> </section>   </main> <footer class="site" data-astro-cid-gcn2mc3v> <div class="container" data-astro-cid-gcn2mc3v> <div class="foot-grid" data-astro-cid-gcn2mc3v> <div class="foot-brand" data-astro-cid-gcn2mc3v> <a class="brand" href="/" aria-label="IPTF — Institutional Privacy Task Force, an Ethereum Foundation initiative" data-astro-cid-gcn2mc3v> <img class="brand-logo" src="/logo-dark.svg" alt="IPTF — Institutional Privacy Task Force" width="219" height="40" data-astro-cid-gcn2mc3v> </a> <p data-astro-cid-gcn2mc3v>A working knowledge base for institutions arriving at Ethereum with privacy requirements. Maintained by the IPTF team.</p> </div> <div data-astro-cid-gcn2mc3v> <h5 data-astro-cid-gcn2mc3v>The Guide</h5> <ul data-astro-cid-gcn2mc3v> <li data-astro-cid-gcn2mc3v><a href="/use-cases/" data-astro-cid-gcn2mc3v>Use cases</a></li> <li data-astro-cid-gcn2mc3v><a href="/approaches/" data-astro-cid-gcn2mc3v>Approaches</a></li> <li data-astro-cid-gcn2mc3v><a href="/patterns/" data-astro-cid-gcn2mc3v>Building blocks</a></li> <li data-astro-cid-gcn2mc3v><a href="/vendors/" data-astro-cid-gcn2mc3v>Vendor profiles</a></li> <li data-astro-cid-gcn2mc3v><a href="/jurisdictions/" data-astro-cid-gcn2mc3v>Jurisdictions</a></li> <li data-astro-cid-gcn2mc3v><a href="/domains/" data-astro-cid-gcn2mc3v>Domains</a></li> <li data-astro-cid-gcn2mc3v><a href="/blog/" data-astro-cid-gcn2mc3v>Blog</a></li> </ul> </div> <div data-astro-cid-gcn2mc3v> <h5 data-astro-cid-gcn2mc3v>Standing matter</h5> <ul data-astro-cid-gcn2mc3v> <li data-astro-cid-gcn2mc3v><a href="/about/" data-astro-cid-gcn2mc3v>About IPTF</a></li> <li data-astro-cid-gcn2mc3v><a href="/faq/" data-astro-cid-gcn2mc3v>FAQ</a></li> <li data-astro-cid-gcn2mc3v><a href="https://github.com/ethereum/iptf-map/blob/master/CONTRIBUTING.md" data-astro-cid-gcn2mc3v>Contributing</a></li> <li data-astro-cid-gcn2mc3v><a href="/glossary/" data-astro-cid-gcn2mc3v>Glossary</a></li> <li data-astro-cid-gcn2mc3v><a href="https://github.com/ethereum/iptf-map/blob/master/CHANGELOG.md" data-astro-cid-gcn2mc3v>Changelog</a></li> </ul> </div> <div data-astro-cid-gcn2mc3v> <h5 data-astro-cid-gcn2mc3v>Source</h5> <ul data-astro-cid-gcn2mc3v> <li data-astro-cid-gcn2mc3v><a href="https://github.com/ethereum/iptf-map" data-astro-cid-gcn2mc3v>github · iptf-map</a></li> <li data-astro-cid-gcn2mc3v><a href="https://github.com/ethereum/iptf-pocs" data-astro-cid-gcn2mc3v>github · iptf-pocs</a></li> <li data-astro-cid-gcn2mc3v><a href="/rfps/" data-astro-cid-gcn2mc3v>Request For Proposals (RFPs)</a></li> </ul> </div> </div> <div class="foot-bottom" data-astro-cid-gcn2mc3v> <span data-astro-cid-gcn2mc3v>© Ethereum Foundation · Institutional Privacy Task Force</span> </div> </div> </footer> <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Site navigation" data-astro-cid-7j2ng5nb> <button class="nav-close" aria-label="Close menu" data-astro-cid-7j2ng5nb>&times;</button> <nav class="nav-overlay-menu" data-astro-cid-7j2ng5nb> <a href="/" data-astro-cid-7j2ng5nb>Home</a> <a href="/approaches/" data-astro-cid-7j2ng5nb>Approaches</a> <a href="/use-cases/" data-astro-cid-7j2ng5nb>Use cases</a> <a href="/patterns/" data-astro-cid-7j2ng5nb>Building blocks</a> <a href="/blog/" data-astro-cid-7j2ng5nb>Blog</a> <a href="/about/" data-astro-cid-7j2ng5nb>About</a> <a href="https://docs.google.com/forms/d/e/1FAIpQLScK2SW0fxXU_h6SGPiBCRiodWFuv-H1BfA3wXh79RPbOT8OKg/viewform" class="cta" target="_blank" rel="noopener" data-astro-cid-7j2ng5nb>Contact us</a> </nav> </div>  <script type="module">const n=document.querySelector(".nav-toggle"),e=document.querySelector("#navOverlay"),c=e?.querySelector(".nav-close"),r=e?.querySelectorAll("a");function s(){e&&(e.classList.add("open"),document.body.style.overflow="hidden",n?.setAttribute("aria-expanded","true"))}function o(){e&&(e.classList.remove("open"),document.body.style.overflow="",n?.setAttribute("aria-expanded","false"))}n?.addEventListener("click",s);c?.addEventListener("click",o);r?.forEach(t=>t.addEventListener("click",o));document.addEventListener("keydown",t=>{t.key==="Escape"&&o()});</script></body></html>

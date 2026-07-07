@@ -1,0 +1,190 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Building Private Bonds on Ethereum - Part 3 · Blog · IPTF</title><meta name="description" content="Exploring Fully Homomorphic Encryption as a path to confidential institutional bonds on Ethereum, the third approach in our Private Bond PoC series."><link rel="canonical" href="https://iptf.ethereum.org/blog/building-private-bonds-on-ethereum-part-3/"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="icon" type="image/png" sizes="256x256" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"><meta property="og:type" content="website"><meta property="og:title" content="Building Private Bonds on Ethereum - Part 3 · Blog · IPTF"><meta property="og:description" content="Exploring Fully Homomorphic Encryption as a path to confidential institutional bonds on Ethereum, the third approach in our Private Bond PoC series."><link rel="stylesheet" href="/_astro/BaseLayout.DKixhPwc.css">
+<style>.article-footer[data-astro-cid-oebh424b]{margin-top:3.5rem;padding-top:2rem;border-top:1px solid var(--color-border)}.continue[data-astro-cid-oebh424b] h4[data-astro-cid-oebh424b]{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:1rem}.continue-grid[data-astro-cid-oebh424b]{display:grid;grid-template-columns:repeat(2,1fr);gap:.65rem}@media(max-width:600px){.continue-grid[data-astro-cid-oebh424b]{grid-template-columns:1fr}}.continue-card[data-astro-cid-oebh424b]{display:grid;grid-template-columns:1fr auto;align-items:center;gap:.5rem .85rem;padding:.85rem 1rem;border:1px solid var(--color-border);border-radius:var(--radius-md);text-decoration:none;color:var(--color-text);background:var(--color-bg);transition:border-color var(--duration-fast) var(--easing-soft),background var(--duration-fast) var(--easing-soft),transform var(--duration-fast) var(--easing-soft)}.continue-card[data-astro-cid-oebh424b]:hover{border-color:var(--color-cta);background:var(--color-bg-subtle);transform:translateY(-1px)}.continue-card[data-astro-cid-oebh424b] .kind[data-astro-cid-oebh424b]{grid-column:1;grid-row:1;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-muted)}.continue-card[data-astro-cid-oebh424b] .title[data-astro-cid-oebh424b]{grid-column:1;grid-row:2;font-family:var(--font-sans);font-size:14.5px;font-weight:600;color:var(--color-primary);line-height:1.3}.continue-card[data-astro-cid-oebh424b] .arr[data-astro-cid-oebh424b]{grid-column:2;grid-row:1 / span 2;color:var(--color-cta);font-weight:700;transition:transform var(--duration-fast) var(--easing-soft)}.continue-card[data-astro-cid-oebh424b]:hover .arr[data-astro-cid-oebh424b]{transform:translate(3px)}.sibling-line[data-astro-cid-oebh424b]{margin-top:1.5rem;font-size:14.5px}.sibling-line[data-astro-cid-oebh424b] a[data-astro-cid-oebh424b]{color:var(--color-cta);font-weight:600;text-decoration:none}.sibling-line[data-astro-cid-oebh424b] a[data-astro-cid-oebh424b]:hover{text-decoration:underline}.sibling-line[data-astro-cid-oebh424b] .arr[data-astro-cid-oebh424b]{transition:transform var(--duration-fast) var(--easing-soft);display:inline-block}.sibling-line[data-astro-cid-oebh424b] a[data-astro-cid-oebh424b]:hover .arr[data-astro-cid-oebh424b]{transform:translate(2px)}.reviewed-line[data-astro-cid-oebh424b]{margin-top:1.25rem;font-family:var(--font-mono);font-size:11.5px;color:var(--color-text-muted);letter-spacing:.04em}.reviewed-line[data-astro-cid-oebh424b] strong[data-astro-cid-oebh424b]{color:var(--color-text-secondary);font-weight:600}
+.page-header[data-astro-cid-wu5dj4rx]{padding:4.5rem 0 2rem;background:radial-gradient(ellipse 60% 50% at 90% 10%,rgba(49,130,206,.05),transparent 60%)}.page-header--centered[data-astro-cid-wu5dj4rx] .container[data-astro-cid-wu5dj4rx]{text-align:center}.page-header--centered[data-astro-cid-wu5dj4rx] .breadcrumb[data-astro-cid-wu5dj4rx]{justify-content:center}.page-header--centered[data-astro-cid-wu5dj4rx] h1[data-astro-cid-wu5dj4rx],.page-header--centered[data-astro-cid-wu5dj4rx] .lede[data-astro-cid-wu5dj4rx],.page-header--centered[data-astro-cid-wu5dj4rx] .meta-row[data-astro-cid-wu5dj4rx]{margin-left:auto;margin-right:auto;text-align:center}.page-header--centered[data-astro-cid-wu5dj4rx] .meta-pills[data-astro-cid-wu5dj4rx]{justify-content:center}.page-header--centered[data-astro-cid-wu5dj4rx] .lede-bullets[data-astro-cid-wu5dj4rx]{margin-left:auto;margin-right:auto;text-align:left}.breadcrumb[data-astro-cid-wu5dj4rx]{font-family:var(--font-mono);font-size:12px;letter-spacing:.04em;color:var(--color-text-muted);margin-bottom:1.5rem;display:flex;flex-wrap:wrap;gap:.25rem;align-items:center}.breadcrumb[data-astro-cid-wu5dj4rx] a[data-astro-cid-wu5dj4rx]{color:var(--color-text-secondary)}.breadcrumb[data-astro-cid-wu5dj4rx] a[data-astro-cid-wu5dj4rx]:hover{color:var(--color-cta)}.breadcrumb[data-astro-cid-wu5dj4rx] .sep[data-astro-cid-wu5dj4rx]{color:var(--color-border-strong);margin:0 .4rem}.page-header[data-astro-cid-wu5dj4rx] h1[data-astro-cid-wu5dj4rx]{font-family:var(--font-sans);font-weight:700;font-size:clamp(2.25rem,4.4vw,3.05rem);line-height:1.08;letter-spacing:-.028em;color:var(--color-primary);margin-bottom:1.25rem;max-width:26ch;text-wrap:balance;min-width:0}.page-header[data-astro-cid-wu5dj4rx] h1[data-astro-cid-wu5dj4rx]:last-child{margin-bottom:0}.page-header[data-astro-cid-wu5dj4rx] .lede[data-astro-cid-wu5dj4rx]{font-size:1.0625rem;line-height:1.65;color:var(--color-text-secondary);max-width:64ch}.page-header[data-astro-cid-wu5dj4rx] .lede[data-astro-cid-wu5dj4rx] strong{color:var(--color-primary);font-weight:600}.page-header[data-astro-cid-wu5dj4rx] .lede-bullets[data-astro-cid-wu5dj4rx]{margin:0;padding-left:1.25rem;max-width:64ch;list-style:disc;color:var(--color-text-secondary)}.page-header[data-astro-cid-wu5dj4rx] .lede-bullets[data-astro-cid-wu5dj4rx] li[data-astro-cid-wu5dj4rx]{font-size:1.0625rem;line-height:1.65;margin-top:.4rem}.page-header[data-astro-cid-wu5dj4rx] .lede-bullets[data-astro-cid-wu5dj4rx] li[data-astro-cid-wu5dj4rx]:first-child{margin-top:0}.page-header[data-astro-cid-wu5dj4rx] .lede-bullets[data-astro-cid-wu5dj4rx] strong{color:var(--color-primary);font-weight:600}.page-header[data-astro-cid-wu5dj4rx] .meta-row[data-astro-cid-wu5dj4rx]{margin-top:1.25rem;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.04em;color:var(--color-text-muted)}.page-header[data-astro-cid-wu5dj4rx] .meta-row[data-astro-cid-wu5dj4rx] strong{color:var(--color-primary);font-weight:600}.meta-pills[data-astro-cid-wu5dj4rx]{margin-top:1.25rem;display:flex;flex-wrap:wrap;gap:.6rem;font-family:var(--font-mono);font-size:11.5px}.meta-pill[data-astro-cid-wu5dj4rx]{background:var(--color-bg-subtle);border:1px solid var(--color-border);padding:.3rem .7rem;border-radius:99px;color:var(--color-text-secondary)}.meta-pill[data-astro-cid-wu5dj4rx] strong[data-astro-cid-wu5dj4rx]{color:var(--color-primary);font-weight:600}
+.detail[data-astro-cid-55ylfk6n]{padding:1.5rem 0 4rem}.detail-grid[data-astro-cid-55ylfk6n]{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:3rem;align-items:start}.detail--centered[data-astro-cid-55ylfk6n] .detail-grid[data-astro-cid-55ylfk6n]{grid-template-columns:minmax(0,1fr)}.detail--centered[data-astro-cid-55ylfk6n] .detail-body[data-astro-cid-55ylfk6n]{width:100%;max-width:720px;margin-left:auto;margin-right:auto}@media(max-width:900px){.detail-grid[data-astro-cid-55ylfk6n]{grid-template-columns:minmax(0,1fr);gap:2rem}}.detail-body[data-astro-cid-55ylfk6n]{min-width:0}.detail-body>:first-child,.detail-grid>aside>:first-child,.detail-grid>aside section:first-child,.detail-grid>aside details:first-child,.detail-body>section:first-child{margin-top:0}
+.post-hero-image[data-astro-cid-4sn4zg3r]{width:100%;margin:0 0 2rem;border-radius:var(--radius-md);overflow:hidden;background:var(--color-bg-subtle)}.post-hero-image[data-astro-cid-4sn4zg3r] img[data-astro-cid-4sn4zg3r]{width:100%;height:auto;display:block}.post-prose{font-size:1.02rem;line-height:1.75;color:var(--color-text);max-width:720px}.post-prose h2{font-family:var(--font-sans);font-size:1.5rem;font-weight:700;color:var(--color-primary);letter-spacing:-.02em;margin:2.5rem 0 .75rem}.post-prose h3{font-family:var(--font-sans);font-size:1.2rem;font-weight:700;color:var(--color-primary);letter-spacing:-.015em;margin:2rem 0 .5rem}.post-prose p{margin:.85rem 0}.post-prose img{max-width:100%;height:auto;border-radius:var(--radius-sm);margin:1.25rem 0}.post-prose a{color:var(--color-cta);text-decoration:none;border-bottom:1px solid transparent;transition:border-color var(--duration-fast) var(--easing-soft)}.post-prose a:hover{border-bottom-color:currentColor}.post-prose code{font-family:var(--font-mono);font-size:.9em;background:var(--color-bg-subtle);padding:.05em .4em;border-radius:var(--radius-sm);color:var(--color-primary)}.post-prose blockquote{border-left:3px solid var(--color-cta);padding-left:1.25rem;color:var(--color-text-secondary);font-style:italic;margin:1.5rem 0}.post-prose ul,.post-prose ol{padding-left:1.5rem;margin:.85rem 0}.post-prose li{margin:.35rem 0}
+</style></head> <body> <header class="nav-bar" data-astro-cid-ymhdp2rl> <div class="container nav-inner" data-astro-cid-ymhdp2rl> <a class="brand" href="/" aria-label="IPTF — Institutional Privacy Task Force, an Ethereum Foundation initiative" data-astro-cid-ymhdp2rl> <img class="brand-logo" src="/logo.svg" alt="IPTF — Institutional Privacy Task Force" width="219" height="40" data-astro-cid-ymhdp2rl> </a> <nav class="nav-primary" data-astro-cid-ymhdp2rl> <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navOverlay" data-astro-cid-ymhdp2rl> <span data-astro-cid-ymhdp2rl></span><span data-astro-cid-ymhdp2rl></span><span data-astro-cid-ymhdp2rl></span> </button> <a href="/approaches/" data-astro-cid-ymhdp2rl>Approaches</a> <a href="/use-cases/" data-astro-cid-ymhdp2rl>Use cases</a> <a href="/patterns/" data-astro-cid-ymhdp2rl>Building blocks</a> <a href="/blog/" class="active" data-astro-cid-ymhdp2rl>Blog</a> <a href="/about/" data-astro-cid-ymhdp2rl>About</a> <a href="https://docs.google.com/forms/d/e/1FAIpQLScK2SW0fxXU_h6SGPiBCRiodWFuv-H1BfA3wXh79RPbOT8OKg/viewform" class="btn ghost nav-cta" target="_blank" rel="noopener" data-astro-cid-ymhdp2rl>Contact us<span class="ext-icon" aria-hidden="true" data-astro-cid-ymhdp2rl><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-ymhdp2rl><path d="M7 17L17 7M9 7h8v8" data-astro-cid-ymhdp2rl></path></svg></span></a> </nav> </div> </header> <main>  <header class="page-header page-header--centered" data-astro-cid-wu5dj4rx> <div class="container" data-astro-cid-wu5dj4rx> <nav class="breadcrumb" aria-label="Breadcrumb" data-astro-cid-wu5dj4rx> <a href="/" data-astro-cid-wu5dj4rx>Home</a><span class="sep" data-astro-cid-wu5dj4rx>/</span><a href="/blog/" data-astro-cid-wu5dj4rx>Blog</a><span class="sep" data-astro-cid-wu5dj4rx>/</span><span data-astro-cid-wu5dj4rx>Building Private Bonds on Ethereum - Part 3</span> </nav> <h1 data-astro-cid-wu5dj4rx>Building Private Bonds on Ethereum - Part 3</h1>  <p class="lede" data-astro-cid-wu5dj4rx>Exploring Fully Homomorphic Encryption as a path to confidential institutional bonds on Ethereum, the third approach in our Private Bond PoC series.</p>  <div class="meta-pills" data-astro-cid-wu5dj4rx> <span class="meta-pill" data-astro-cid-wu5dj4rx><strong data-astro-cid-wu5dj4rx>2026-02-12</strong></span><span class="meta-pill" data-astro-cid-wu5dj4rx>Yanis</span> </div> </div> </header> <section class="detail detail--centered" data-astro-cid-55ylfk6n> <div class="container" data-astro-cid-55ylfk6n> <div class="detail-grid" data-astro-cid-55ylfk6n> <article class="detail-body" data-astro-cid-55ylfk6n> <div class="post-hero-image" data-astro-cid-4sn4zg3r> <img src="/assets/images/2026-01-16-building-private-bonds-on-ethereum/building_private_bonds_on_ethereum.png" alt="" loading="eager" data-astro-cid-4sn4zg3r> </div><div class="prose post-prose" data-astro-cid-4sn4zg3r> <p><em>This is Part 3 of our Private Bond proof-of-concept series. In <a href="/building-private-bonds-on-ethereum/">Part 1</a> we explored Custom UTXOs, in <a href="/private-bonds-on-privacy-l2s/">Part 2</a> we covered Privacy L2s with Aztec. Now we examine a fundamentally different approach: Fully Homomorphic Encryption.</em></p>
+<h2 id="what-is-fully-homomorphic-encryption">What is Fully Homomorphic Encryption?</h2>
+<p>Fully Homomorphic Encryption (FHE) allows computations directly on encrypted data without ever decrypting it. The result, when decrypted, matches what you would get from computing on the plaintext.</p>
+<p>Imagine a locked box that you can manipulate from the outside (adding, subtracting, comparing what’s inside) without ever opening it. Only the keyholder can peek inside, but anyone can perform operations.</p>
+<p><img src="/assets/images/2026-02-12-private-bonds-fhe/fhe-homomorphic-property.png" alt="FHE transfer flow showing encryption, on-chain computation, and threshold decryption"></p>
+<p>This property makes FHE compelling for privacy-preserving finance: a smart contract can update encrypted balances, verify encrypted conditions, and transfer encrypted amounts, all while the actual values remain hidden from everyone including the blockchain observers.</p>
+<h2 id="why-fhe-looked-promising">Why FHE Looked Promising</h2>
+<p>Compared to ZK-based approaches, FHE offers a different paradigm with distinct trade-offs:</p>
+<p><strong>Direct EVM Integration.</strong> Unlike custom UTXO (which requires building notes, nullifiers, and Merkle trees from scratch) or Privacy L2s (which need their own execution environment), FHE can operate on standard Ethereum, or chains compatible with its cryptographic requirements. Identities remain standard ECDSA EOAs. You can wrap existing ERC20s directly rather than rebuilding token logic from scratch.</p>
+<p><strong>Familiar Programming Model.</strong> Balances remain as Solidity mappings and identities stay as standard addresses, no notes, nullifiers, or Merkle trees to manage. Your <code>uint64</code> becomes an <code>euint64</code>, and much of the contract logic reads like a standard ERC20. But the encrypted types come with constraints: you can’t branch on encrypted values, transfers can’t revert on failure (that would leak information), and decryption requires coordinating with a threshold network. Still, for developers already comfortable with Solidity, this is a gentler starting point than writing ZK circuits in Noir or Circom.</p>
+<h2 id="the-encryption-model">The Encryption Model</h2>
+<p>FHE involves three key components:</p>
+<p><strong>Public Key</strong>: Shared network-wide. Anyone can encrypt values using this key before submitting them to the blockchain. Think of it as the lock, freely available.</p>
+<p><strong>Private Key</strong>: Required to decrypt ciphertexts. Here’s where things get interesting for blockchains: who holds this key?</p>
+<p><strong>Evaluation Key</strong>: Enables computation on ciphertexts without decrypting. This is the “magic” that lets contracts perform arithmetic on encrypted values.</p>
+<h3 id="the-decryption-trust-problem">The Decryption Trust Problem</h3>
+<p>In traditional encryption, you hold your own keys. But to use FHE publicly on a blockchain, we need a different model, contracts must compute on everyone’s encrypted data, and multiple parties may need decryption rights.</p>
+<p>The solution: <strong>threshold decryption</strong>. The private key is split across multiple operators using Multi-Party Computation (MPC). To decrypt, a threshold (e.g., 9 of 13) must cooperate. No single operator can decrypt alone.</p>
+<p>This introduces new trust assumptions:</p>
+<ul>
+<li>You trust that fewer than 1/3 of operators are malicious (colluding beyond this threshold allows key reconstruction)</li>
+<li>You trust the key generation ceremony was honest</li>
+<li>You trust the network will remain available when you need to access your funds</li>
+</ul>
+<p>For institutions accustomed to custodial trust models, this may be acceptable. For those seeking self-sovereign privacy, it’s a significant trade-off versus ZK approaches where users hold their own keys.</p>
+<h2 id="why-deploying-fhe-is-hard">Why Deploying FHE is Hard</h2>
+<p>The cryptography is computationally intensive. A single FHE operation can be orders of magnitude slower than a plaintext equivalent. Running this on-chain is impractical.</p>
+<p>Operating your own decryption network requires:</p>
+<ul>
+<li>Secure key generation ceremonies</li>
+<li>24/7 availability across multiple operators</li>
+<li>Hardware security (enclaves, HSMs)</li>
+<li>Coordination infrastructure</li>
+</ul>
+<p>For most institutions, this operational burden exceeds the benefit. This brings us to why we chose a particular implementation path for our PoC.</p>
+<h2 id="the-zama-approach">The Zama Approach</h2>
+<p>We used <a href="https://github.com/zama-ai/fhevm/blob/main/fhevm-whitepaper.pdf">Zama’s fhEVM</a> for this proof of concept. A few notes on context:</p>
+<p>The <a href="https://www.confidentialtoken.org/">Confidential Token Standard</a> represents broader industry work on encrypted ERC20s. Multiple teams are exploring how FHE can enable private token standards. Zama’s fhEVM is one implementation. We chose it for practical reasons: mature tooling, existing coprocessor infrastructure, and the ability to execute a PoC quickly without standing up our own threshold network.</p>
+<h3 id="the-coprocessor-model">The Coprocessor Model</h3>
+<p>Zama’s architecture separates concerns:</p>
+<p><strong>On-chain</strong>: The smart contract stores encrypted ciphertexts and emits instructions for FHE operations. No actual FHE computation happens here; gas costs only cover ciphertext storage and operation logging.</p>
+<p><strong>Off-chain (Coprocessor)</strong>: A network of nodes performs the actual FHE computations. When you call <code>FHE.add(a, b)</code>, the contract records this request; coprocessors execute it and return the resulting ciphertext.</p>
+<p><strong>Threshold Network</strong>: When decryption is needed (e.g., user wants to see their balance), they request it through a Gateway. The threshold network coordinates: if 9 of 13 operators agree, the value is decrypted and returned.</p>
+<p><img src="/assets/images/2026-02-12-private-bonds-fhe/zama-architecture.png" alt="Zama architecture: on-chain contract, off-chain coprocessor, and threshold decryption network"></p>
+<p>This means:</p>
+<ul>
+<li>On-chain gas is manageable (~330K for a transfer vs. ~1M for ZK verification)</li>
+<li>Latency involves FHE computation (~40-80ms per operation), transfer of large ciphertexts (tens of KB each), and for decryption, threshold network coordination. End-to-end latency will be significantly higher than raw computation time</li>
+<li>Throughput is shared: the entire network reportedly handles 500-1000 TPS across all apps</li>
+</ul>
+<h2 id="the-smart-contract">The Smart Contract</h2>
+<p>Our <a href="https://github.com/ethereum/iptf-pocs/tree/master/pocs/private-bond/fhe"><code>ConfidentialBond.sol</code></a> contract is roughly 300 lines, simpler than UTXO, comparable to Aztec. Here’s the core structure:</p>
+<h3 id="public-state">Public State</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="solidity"><code><span class="line"><span style="color:#005CC5">address</span><span style="color:#D73A49"> public</span><span style="color:#24292E"> owner;                         </span><span style="color:#6A737D">// Bond issuer</span></span>
+<span class="line"><span style="color:#005CC5">bytes32</span><span style="color:#D73A49"> public</span><span style="color:#24292E"> bondId;                        </span><span style="color:#6A737D">// ISIN or identifier hash</span></span>
+<span class="line"><span style="color:#D73A49">mapping</span><span style="color:#24292E">(</span><span style="color:#005CC5">address</span><span style="color:#D73A49"> =></span><span style="color:#005CC5"> bool</span><span style="color:#24292E">) </span><span style="color:#D73A49">public</span><span style="color:#24292E"> whitelist;    </span><span style="color:#6A737D">// KYC registry</span></span>
+<span class="line"><span style="color:#005CC5">uint64</span><span style="color:#D73A49"> public</span><span style="color:#24292E"> totalSupply;</span></span>
+<span class="line"><span style="color:#005CC5">uint64</span><span style="color:#D73A49"> public</span><span style="color:#24292E"> maturityDate;</span></span></code></pre>
+<h3 id="encrypted-state">Encrypted State</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="solidity"><code><span class="line"><span style="color:#D73A49">mapping</span><span style="color:#24292E">(</span><span style="color:#005CC5">address</span><span style="color:#D73A49"> =></span><span style="color:#24292E"> euint64) </span><span style="color:#D73A49">internal</span><span style="color:#24292E"> _balances;</span></span>
+<span class="line"><span style="color:#D73A49">mapping</span><span style="color:#24292E">(</span><span style="color:#005CC5">address</span><span style="color:#D73A49"> =></span><span style="color:#D73A49"> mapping</span><span style="color:#24292E">(</span><span style="color:#005CC5">address</span><span style="color:#D73A49"> =></span><span style="color:#24292E"> euint64)) </span><span style="color:#D73A49">internal</span><span style="color:#24292E"> _allowances;</span></span></code></pre>
+<h3 id="key-functions">Key Functions</h3>
+<p><strong>Whitelist Management</strong>: Standard KYC gatekeeping. Only whitelisted addresses can hold or transfer bonds.</p>
+<p><strong>Transfer</strong>: Similar to ERC20, but with a critical difference: it never reverts on insufficient balance. Reverts leak information. Instead, transfers silently become zero if balance is insufficient:</p>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="solidity"><code><span class="line"><span style="color:#24292E">ebool hasEnough </span><span style="color:#D73A49">=</span><span style="color:#24292E"> FHE.</span><span style="color:#6F42C1">le</span><span style="color:#24292E">(amount, _balances[from]);</span></span>
+<span class="line"><span style="color:#24292E">euint64 transferAmount </span><span style="color:#D73A49">=</span><span style="color:#24292E"> FHE.</span><span style="color:#6F42C1">select</span><span style="color:#24292E">(hasEnough, amount, FHE.</span><span style="color:#6F42C1">asEuint64</span><span style="color:#24292E">(</span><span style="color:#005CC5">0</span><span style="color:#24292E">));</span></span></code></pre>
+<p>Users must query their balance after the transaction to confirm whether it succeeded. This uses the “User Decryption” path: the KMS nodes re-encrypt the value under the user’s public key via threshold MPC, so no individual operator sees the plaintext. However, unlike ZK approaches where balance checks are fully local, this still depends on the threshold network’s availability and honesty.</p>
+<p><strong>Redemption</strong>: After maturity, bondholders burn their holdings. Settlement occurs off-chain.</p>
+<p><strong><a href="https://github.com/ethereum/iptf-map/blob/master/patterns/pattern-regulatory-disclosure-keys-proofs.md">Audit Access</a></strong>: The issuer can grant regulators permission to decrypt specific balances:</p>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="solidity"><code><span class="line"><span style="color:#D73A49">function</span><span style="color:#6F42C1"> grantAuditAccess</span><span style="color:#24292E">(</span><span style="color:#005CC5">address</span><span style="color:#E36209"> account</span><span style="color:#24292E">, </span><span style="color:#005CC5">address</span><span style="color:#E36209"> auditor</span><span style="color:#24292E">) </span><span style="color:#D73A49">external</span><span style="color:#6F42C1"> onlyOwner</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#24292E">    FHE.</span><span style="color:#6F42C1">allow</span><span style="color:#24292E">(_balances[account], auditor);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<p>Access is per-ciphertext. When a balance changes (new ciphertext handle), the auditor needs fresh permission.</p>
+<h2 id="comparing-the-three-approaches">Comparing the Three Approaches</h2>
+<p>We’ve now built the same bond (whitelisted participants, private amounts, regulatory access) using three different privacy technologies. Here’s how they compare (see also our <a href="https://github.com/ethereum/iptf-map/blob/master/approaches/approach-private-bonds.md">approach analysis</a> and <a href="https://github.com/ethereum/iptf-pocs/blob/master/pocs/private-bond/BENCHMARK.md">benchmarks</a>):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Aspect</th><th>Custom UTXO</th><th>Privacy L2 (Aztec)</th><th>FHE (Zama)</th></tr></thead><tbody><tr><td>Deployment</td><td>Ethereum L1</td><td>Aztec L2</td><td>Zama-enabled chains</td></tr><tr><td>Code Complexity</td><td>~1000+ lines</td><td>~200 lines</td><td>~300 lines</td></tr><tr><td>Privacy Model</td><td>Notes + Nullifiers</td><td>Native L2 privacy</td><td>Encrypted account state</td></tr><tr><td>Who Proves?</td><td>Relayer or User</td><td>User (PXE)</td><td>Coprocessor network</td></tr><tr><td>Decryption Authority</td><td>User holds keys</td><td>User holds keys</td><td>Threshold network</td></tr></tbody></table>
+<h3 id="gas--latency">Gas &#x26; Latency</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Metric</th><th>Custom UTXO</th><th>Privacy L2</th><th>FHE</th></tr></thead><tbody><tr><td>Transfer Gas</td><td>~1.07M (Railgun ref)</td><td>Unknown</td><td>~330K</td></tr><tr><td>Proving Latency</td><td>2-30s</td><td>~10s</td><td>40-80ms (computation only, excludes ciphertext transfer)</td></tr><tr><td>Throughput</td><td>Network-bound (~15 TPS L1, ~1000+ L2)</td><td>Unknown</td><td>500-1000 TPS shared</td></tr></tbody></table>
+<h3 id="whats-hidden-vs-public">What’s Hidden vs. Public</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Approach</th><th>Hidden</th><th>Public</th></tr></thead><tbody><tr><td>Custom UTXO</td><td>Amounts, balances, tx graph</td><td>Merkle roots, nullifiers</td></tr><tr><td>Privacy L2</td><td>Amounts, balances</td><td>Addresses (whitelist)</td></tr><tr><td>FHE</td><td>Amounts, balances</td><td>Addresses, tx existence</td></tr></tbody></table>
+<h2 id="trade-offs">Trade-offs</h2>
+<p><a href="https://github.com/ethereum/iptf-map/blob/master/patterns/pattern-zk-shielded-balances.md">Custom UTXO</a> offers the strongest privacy guarantees: even addresses are obscured via nullifiers, and users control their own keys. Railgun and similar systems prove the model works in production. But implementation complexity is significant. Our PoC required building notes, Merkle trees, and nullifier management from scratch. Nullifiers also accumulate forever, creating storage concerns at scale (mitigations like <a href="https://eprint.iacr.org/2025/2031">epoch-based pruning</a> are being researched but not yet deployed).</p>
+<p><a href="https://github.com/ethereum/iptf-map/blob/master/patterns/pattern-privacy-l2s.md">Privacy L2s</a> like Aztec handle the hard parts for you: notes, proofs, encryption. Our contract was just 200 lines. Private composability is native, meaning your bonds could interact with private lending or swaps on the same L2. The catch: neither Aztec nor Miden are live yet (both scheduled for launch later in 2026), so we can’t measure real costs. And the learning curve exists: Noir is not Solidity.</p>
+<p>FHE is the gentlest onramp. If you know Solidity, you can write confidential contracts quickly. Standard wallets work. But you trade self-custody for threshold trust: your funds depend on the network’s availability, and if a quorum of KMS operators collude, they could reconstruct the decryption key. In normal operation, no individual operator sees plaintext (user decryptions are re-encrypted under the user’s key via MPC). For institutions already comfortable with custodial relationships, this may be acceptable. For those seeking self-sovereign privacy, it’s a meaningful concession.</p>
+<p>It’s worth noting that the coprocessor model isn’t exclusive to FHE. <a href="https://merces-demo.taceo.io/">TACEO’s Merces</a> (built from their <a href="https://github.com/TaceoLabs/private_deposit/tree/main">private_deposit</a> codebase) demonstrates a similar architecture using MPC instead: a three-party network maintains secret-shared balances and generates collaborative SNARKs (Groth16 proofs) to verify state transitions on-chain. This is an application of the <a href="https://github.com/ethereum/iptf-map/blob/master/patterns/pattern-co-snark.md">co-SNARK pattern</a>, where multiple parties jointly produce a ZK proof without revealing their individual inputs. The trust assumption is the same, you rely on an honest majority of operators rather than holding your own keys, but the MPC path avoids FHE’s computational overhead and adds native verifiability through the co-SNARK proofs. We could have built our bond PoC on this stack as well.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Three paths to the same destination: private institutional bonds on Ethereum. Each works. Each makes different trade-offs on privacy, complexity, and trust. The choice depends on what your institution prioritizes.</p>
+<p>The code for all three approaches is available in the <a href="https://github.com/ethereum/iptf-pocs/tree/master/pocs/private-bond">IPTF PoC repository</a>, with detailed specs and benchmarks. For a broader view of privacy patterns and vendor landscape, see the <a href="https://github.com/ethereum/iptf-map">IPTF Knowledge Map</a>. We welcome feedback and contributions.</p>
+<hr>
+<p><em>Next up: Private Stablecoins, exploring shielded pools and on-chain KYC registries for compliant private payments.</em></p> </div>    <footer class="article-footer" data-astro-cid-oebh424b><p class="sibling-line" data-astro-cid-oebh424b><a href="/blog/" data-astro-cid-oebh424b>More writeups<span class="arr" data-astro-cid-oebh424b>→</span></a></p><p class="reviewed-line" data-astro-cid-oebh424b>Last reviewed <strong data-astro-cid-oebh424b>2026-02-12</strong></p></footer>  </article>  </div> </div> </section>   </main> <footer class="site" data-astro-cid-gcn2mc3v> <div class="container" data-astro-cid-gcn2mc3v> <div class="foot-grid" data-astro-cid-gcn2mc3v> <div class="foot-brand" data-astro-cid-gcn2mc3v> <a class="brand" href="/" aria-label="IPTF — Institutional Privacy Task Force, an Ethereum Foundation initiative" data-astro-cid-gcn2mc3v> <img class="brand-logo" src="/logo-dark.svg" alt="IPTF — Institutional Privacy Task Force" width="219" height="40" data-astro-cid-gcn2mc3v> </a> <p data-astro-cid-gcn2mc3v>A working knowledge base for institutions arriving at Ethereum with privacy requirements. Maintained by the IPTF team.</p> </div> <div data-astro-cid-gcn2mc3v> <h5 data-astro-cid-gcn2mc3v>The Guide</h5> <ul data-astro-cid-gcn2mc3v> <li data-astro-cid-gcn2mc3v><a href="/use-cases/" data-astro-cid-gcn2mc3v>Use cases</a></li> <li data-astro-cid-gcn2mc3v><a href="/approaches/" data-astro-cid-gcn2mc3v>Approaches</a></li> <li data-astro-cid-gcn2mc3v><a href="/patterns/" data-astro-cid-gcn2mc3v>Building blocks</a></li> <li data-astro-cid-gcn2mc3v><a href="/vendors/" data-astro-cid-gcn2mc3v>Vendor profiles</a></li> <li data-astro-cid-gcn2mc3v><a href="/jurisdictions/" data-astro-cid-gcn2mc3v>Jurisdictions</a></li> <li data-astro-cid-gcn2mc3v><a href="/domains/" data-astro-cid-gcn2mc3v>Domains</a></li> <li data-astro-cid-gcn2mc3v><a href="/blog/" data-astro-cid-gcn2mc3v>Blog</a></li> </ul> </div> <div data-astro-cid-gcn2mc3v> <h5 data-astro-cid-gcn2mc3v>Standing matter</h5> <ul data-astro-cid-gcn2mc3v> <li data-astro-cid-gcn2mc3v><a href="/about/" data-astro-cid-gcn2mc3v>About IPTF</a></li> <li data-astro-cid-gcn2mc3v><a href="/faq/" data-astro-cid-gcn2mc3v>FAQ</a></li> <li data-astro-cid-gcn2mc3v><a href="https://github.com/ethereum/iptf-map/blob/master/CONTRIBUTING.md" data-astro-cid-gcn2mc3v>Contributing</a></li> <li data-astro-cid-gcn2mc3v><a href="/glossary/" data-astro-cid-gcn2mc3v>Glossary</a></li> <li data-astro-cid-gcn2mc3v><a href="https://github.com/ethereum/iptf-map/blob/master/CHANGELOG.md" data-astro-cid-gcn2mc3v>Changelog</a></li> </ul> </div> <div data-astro-cid-gcn2mc3v> <h5 data-astro-cid-gcn2mc3v>Source</h5> <ul data-astro-cid-gcn2mc3v> <li data-astro-cid-gcn2mc3v><a href="https://github.com/ethereum/iptf-map" data-astro-cid-gcn2mc3v>github · iptf-map</a></li> <li data-astro-cid-gcn2mc3v><a href="https://github.com/ethereum/iptf-pocs" data-astro-cid-gcn2mc3v>github · iptf-pocs</a></li> <li data-astro-cid-gcn2mc3v><a href="/rfps/" data-astro-cid-gcn2mc3v>Request For Proposals (RFPs)</a></li> </ul> </div> </div> <div class="foot-bottom" data-astro-cid-gcn2mc3v> <span data-astro-cid-gcn2mc3v>© Ethereum Foundation · Institutional Privacy Task Force</span> </div> </div> </footer> <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Site navigation" data-astro-cid-7j2ng5nb> <button class="nav-close" aria-label="Close menu" data-astro-cid-7j2ng5nb>&times;</button> <nav class="nav-overlay-menu" data-astro-cid-7j2ng5nb> <a href="/" data-astro-cid-7j2ng5nb>Home</a> <a href="/approaches/" data-astro-cid-7j2ng5nb>Approaches</a> <a href="/use-cases/" data-astro-cid-7j2ng5nb>Use cases</a> <a href="/patterns/" data-astro-cid-7j2ng5nb>Building blocks</a> <a href="/blog/" data-astro-cid-7j2ng5nb>Blog</a> <a href="/about/" data-astro-cid-7j2ng5nb>About</a> <a href="https://docs.google.com/forms/d/e/1FAIpQLScK2SW0fxXU_h6SGPiBCRiodWFuv-H1BfA3wXh79RPbOT8OKg/viewform" class="cta" target="_blank" rel="noopener" data-astro-cid-7j2ng5nb>Contact us</a> </nav> </div>  <script type="module">const n=document.querySelector(".nav-toggle"),e=document.querySelector("#navOverlay"),c=e?.querySelector(".nav-close"),r=e?.querySelectorAll("a");function s(){e&&(e.classList.add("open"),document.body.style.overflow="hidden",n?.setAttribute("aria-expanded","true"))}function o(){e&&(e.classList.remove("open"),document.body.style.overflow="",n?.setAttribute("aria-expanded","false"))}n?.addEventListener("click",s);c?.addEventListener("click",o);r?.forEach(t=>t.addEventListener("click",o));document.addEventListener("keydown",t=>{t.key==="Escape"&&o()});</script></body></html>
