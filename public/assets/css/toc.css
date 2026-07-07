@@ -1,0 +1,99 @@
+/* Table of Contents Styles */
+
+/* Container for post content and ToC */
+.post-container {
+  position: relative;
+}
+
+/* ToC sidebar - positioned absolutely to not affect content width */
+.post-toc {
+  display: none; /* Hidden by default on mobile and smaller screens */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.post-toc.visible {
+  opacity: 1;
+}
+
+.post-toc nav {
+  position: fixed;
+  top: 120px;
+  right: max(2rem, calc((100vw - 800px) / 2 - 280px));
+  width: 220px;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.post-toc nav::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
+}
+
+.post-toc h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+  color: #424242;
+}
+
+.post-toc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.post-toc li {
+  margin-bottom: 0.5rem;
+}
+
+.post-toc a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.post-toc a:hover {
+  color: #1a1a1a;
+}
+
+.post-toc a.active {
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+/* Nested items (h3) */
+.post-toc li li {
+  margin-left: 1rem;
+  margin-top: 0.25rem;
+  font-size: 0.8125rem;
+}
+
+/* Main content - keeps full width */
+.post-content {
+  max-width: 100%;
+}
+
+/* Only show ToC on large screens with enough space */
+@media (min-width: 1300px) {
+  .post-toc {
+    display: block;
+  }
+}
+
+/* Mobile: ToC always hidden */
+@media (max-width: 1299px) {
+  .post-toc {
+    display: none;
+  }
+
+  .post-content {
+    max-width: 100%;
+  }
+}

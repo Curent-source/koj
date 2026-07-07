@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Build artifacts
+dist/
+.astro/
+src/data/graph.json
+
+# Local tooling
+.claude/worktrees/
+
+# OS
+.DS_Store
+
+# Excalidraw source files
+*.excalidraw
+src/data/glossary.json
